@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOT Leitmotif Suite</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('track', () => ({
+                init() {
+                    fetch("/data.json").then(response => response.json()).then((data) => this.suites = data)
+                    this.player = document.querySelector('audio')
+                    this.player.addEventListener("pause", () => { this.trackId = "" })
+                },
+                suites: [],
+                player: {},
+                trackId: "",
+                timeouttrack: {},
+                error: false,
+                async play(src, seek, trackid) {
+                    this.destroy()
+                    this.trackId = trackid;
+                    this.player.src = src;
+                    this.player.load()
+                    this.player.currentTime = seek
+                    await this.player.play()
+                    // this.timeouttrack = setTimeout(() => { this.stop() }, 15000)
+                },
+                stop() {
+                    this.destroy()
+                    this.player.pause()
+                    this.player.currentTime = 0
+                },
+                destroy() {
+                    if (this.timeouttrack) {
+                        clearTimeout(this.timeouttrack)
+                    }
+                }
+            }))
+        })
+    </script>
+    <style>
+        @font-face {
+            font-family: 'angle';
+            /*a name to be used later*/
+            src: url('assets/angle_wish.ttf');
+            /*URL to font*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hero"
+        class="flex flex-col justify-center bg-[url(/assets/wall_maria.png)] bg-gray-500/50 bg-blend-darken bg-bottom bg-cover min-h-dvh">
+        <img src="/assets/aot_logo.webp" alt="attack on titan logo" class="max-w-1/2 h-auto text-center block mx-auto">
+        <h2 class="font-serif text-center text-4xl text-white [text-shadow:_4px_4px_0_rgb(0_0_0_/_40%)]">Leitmotif suite
+        </h2>
+    </div>
+    <div x-data="track" @click.self="stop()" id="content" class="bg-gray-950 text-gray-300 min-h-dvh">
+        <audio id="track">
+        </audio>
+        <template x-for="suite in suites">
+            <div class="border-b border-gray-400">
+                <h1 class="ml-2 text-lg" x-text="suite.name"></h1>
+                <div @click.self="stop()">
+                    <template x-for="track in suite.tracks">
+                        <button x-bind:class="trackId === track.id ? 'bg-gray-100 text-gray-900 border-none' : ''"
+                            class="px-2 m-2 rounded border border-gray-50" @click="play(track.url,track.seek,track.id)">
+                            <span x-text="track.name"></span>
+                            <span x-show="trackId === track.id">
+                                playing. . .</span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</body>
+
+</html>

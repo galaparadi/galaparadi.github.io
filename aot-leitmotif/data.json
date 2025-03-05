@@ -1,0 +1,286 @@
+[
+    {
+        "name": "HumanKind",
+        "tracks": [
+            {
+                "name": "counter・attack-mankind",
+                "id": 81,
+                "seek": 114.8,
+                "url": "/assets/tracks/05. counter・attack-mankind.mp3",
+                "album": ""
+            },
+            {
+                "name": "ERENthe標",
+                "id": 82,
+                "seek": 297.8,
+                "url": "/assets/tracks/1.06 ERENthe標.mp3",
+                "album": ""
+            },
+            {
+                "name": "進撃vc-pf20130218巨人",
+                "id": 84,
+                "seek": 52.4,
+                "url": "/assets/tracks/2.11 進撃vc-pf20130218巨人.mp3",
+                "album": ""
+            },
+            {
+                "name": "So ist es immer",
+                "id": 83,
+                "seek": 66.4,
+                "url": "/assets/tracks/1.11 So ist es immer.mp3",
+                "album": ""
+            }
+        ]
+    },
+    {
+        "name": "Call/*",
+        "tracks": [
+            {
+                "name": "Call your name",
+                "id": 41,
+                "seek": 67,
+                "url": "/assets/tracks/15. Call Your Name.mp3",
+                "album": ""
+            },
+            {
+                "name": "Call your name <GV>",
+                "id": 42,
+                "seek": 65.8,
+                "url": "/assets/tracks/1.09 Call your name _Gv_.mp3"
+            },
+            {
+                "name": "TheWeightOfLives",
+                "id": 44,
+                "seek": 80.8,
+                "url": "/assets/tracks/2.12 TheWeightOfLives.mp3"
+            },
+            {
+                "name": "進撃st-hrn-egt20130629巨人",
+                "id": 45,
+                "seek": 218.4,
+                "url": "/assets/tracks/1.10 進撃st-hrn-egt20130629巨人.mp3"
+            },
+            {
+                "name": "進撃vn-pf20130524巨人",
+                "id": 46,
+                "seek": 112,
+                "url": "/assets/tracks/2.07 進撃vn-pf20130524巨人.mp3"
+            },
+            {
+                "name": "attack音D",
+                "id": 43,
+                "seek": 225.5,
+                "url": "/assets/tracks/1.07 attack音D.mp3"
+            },
+            {
+                "name": "進撃pf-medley20130629巨人",
+                "id": 47,
+                "seek": 109,
+                "url": "/assets/tracks/2.01 進撃pf-medley20130629巨人.mp3"
+            }
+        ]
+    },
+    {
+        "name": "*/of silence",
+        "tracks": [
+            {
+                "name": "Call your name",
+                "id": 11,
+                "seek": 148.7,
+                "url": "/assets/tracks/15. Call Your Name.mp3"
+            },
+            {
+                "name": "Call your name <GV>",
+                "id": 15,
+                "seek": 144.3,
+                "url": "/assets/tracks/1.09 Call your name _Gv_.mp3"
+            },
+            {
+                "name": "Call of Silence",
+                "id": 14,
+                "seek": 103.7,
+                "url": "/assets/tracks/1.05 Call of Silence.mp3"
+            },
+            {
+                "name": "eye-water",
+                "id": 12,
+                "seek": 106.5,
+                "url": "/assets/tracks/03. Eye-Water.mp3"
+            },
+            {
+                "name": "進撃gt20130218巨人",
+                "id": 13,
+                "seek": 75,
+                "url": "/assets/tracks/2.04 進撃gt20130218巨人.mp3"
+            }
+        ]
+    },
+    {
+        "name": "Tr8t0r",
+        "tracks": [
+            {
+                "name": "YouSeeBIGGIRL/T:T",
+                "id": 21,
+                "seek": 87.8,
+                "url": "/assets/tracks/1.03 YouSeeBIGGIRL-T-T.mp3"
+            },
+            {
+                "name": "Apple Seed",
+                "id": 22,
+                "seek": 87.5,
+                "url": "/assets/tracks/1.14 SymphonicSuite[AoT]Part2-5th-Apple Seed.mp3"
+            },
+            {
+                "name": "attack音D",
+                "id": 23,
+                "seek": 112.6,
+                "url": "/assets/tracks/1.07 attack音D.mp3"
+            },
+            {
+                "name": "AOTs2M他3",
+                "id": 24,
+                "seek": 112.4,
+                "url": "/assets/tracks/2.16 AOTs2M他3.mp3"
+            }
+        ]
+    },
+    {
+        "name": "V:Vogel",
+        "tracks": [
+            {
+                "name": "Vogel im Käfig",
+                "id": 31,
+                "seek": 286,
+                "url": "/assets/tracks/07. Vogel im Kafig _Vocal- Cyua_.mp3"
+            },
+            {
+                "name": "YouSeeBIGGIRL/T:T",
+                "id": 32,
+                "seek": 275.8,
+                "url": "/assets/tracks/1.03 YouSeeBIGGIRL-T-T.mp3"
+            }
+        ]
+    },
+    {
+        "name": "TWO-DOGS",
+        "tracks": [
+            {
+                "name": "theDOGS",
+                "id": 91,
+                "seek": 67,
+                "url": "/assets/tracks/1.16 theDOGS.mp3"
+            },
+            {
+                "name": "TWO-lives",
+                "id": 92,
+                "seek": 202.7,
+                "url": "/assets/tracks/2.05 TWO-lives.mp3"
+            },
+            {
+                "name": "2Volt",
+                "id": 93,
+                "seek": 277.6,
+                "url": "/assets/tracks/1.09 2Volt.mp3"
+            },
+            {
+                "name": "TheWeightOfLives",
+                "id": 94,
+                "seek": 167.2,
+                "url": "/assets/tracks/2.12 TheWeightOfLives.mp3"
+            }
+        ]
+    },
+    {
+        "name": "BARRICaD",
+        "tracks": [
+            {
+                "name": "Barricades",
+                "id": 71,
+                "seek": 59.2,
+                "url": "/assets/tracks/1.01 Barricades.mp3"
+            },
+            {
+                "name": "Barricades",
+                "id": 72,
+                "seek": 59.2,
+                "url": "/assets/tracks/1.01 Barricades.mp3"
+            },
+            {
+                "name": "BARRIchestra",
+                "id": 73,
+                "seek": 137,
+                "url": "/assets/tracks/1.05 SymphonicSuite[AoT]Part1-3rd-BARRIchestra.mp3"
+            },
+            {
+                "name": "BARRIchestra (2nd Move)",
+                "id": 74,
+                "seek": 285,
+                "url": "/assets/tracks/1.05 SymphonicSuite[AoT]Part1-3rd-BARRIchestra.mp3"
+            }
+        ]
+    },
+    {
+        "name": "APTitan",
+        "tracks": [
+            {
+                "name": "APETITAN",
+                "id": 51,
+                "seek": 102.8,
+                "url": "/assets/tracks/1.02 APETITAN.mp3"
+            },
+            {
+                "name": "APETITAN (2nd Move)",
+                "id": 52,
+                "seek": 250.5,
+                "url": "/assets/tracks/1.02 APETITAN.mp3"
+            },
+            {
+                "name": "Before Lights Out",
+                "id": 55,
+                "seek": 112.2,
+                "url": "/assets/tracks/1.12 SymphonicSuite[AoT]Part2-3rd-Before Lights Out.mp3"
+            },
+            {
+                "name": "tooth-i:",
+                "id": 53,
+                "seek": 112.5,
+                "url": "/assets/tracks/2.06 tooth-i-.mp3"
+            },
+            {
+                "name": "AOTs2M他3",
+                "id": 54,
+                "seek": 44,
+                "url": "/assets/tracks/2.16 AOTs2M他3.mp3"
+            }
+        ]
+    },
+    {
+        "name": "A:T",
+        "tracks": [
+            {
+                "name": "LENぞ97n10火巨説MAHLE",
+                "id": 61,
+                "seek": 67.2,
+                "url": "/assets/tracks/2.07 LENぞ97n10火巨説MAHLE.mp3"
+            },
+            {
+                "name": "ShingekiNoKyojin",
+                "id": 62,
+                "seek": 101.4,
+                "url": "/assets/tracks/1.11 SymphonicSuite[AoT]Part2-2nd-ShingekiNoKyojin.mp3"
+            },
+            {
+                "name": "ThanksAT",
+                "id": 63,
+                "seek": 130,
+                "url": "/assets/tracks/1.15 SymphonicSuite[AoT]Part2-6th-ThanksAT.mp3"
+            },
+            {
+                "name": "T-KT",
+                "id": 64,
+                "seek": 99.2,
+                "url": "/assets/tracks/2.02 T-KT.mp3"
+            }
+        ]
+    }
+]

@@ -11,7 +11,7 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('track', () => ({
                 init() {
-                    fetch("aot-leitmotif/data.json").then(response => response.json()).then((data) => this.suites = data)
+                    fetch("/aot-leitmotif/data.json").then(response => response.json()).then((data) => this.suites = data)
                     this.player = document.querySelector('audio')
                     this.player.addEventListener("pause", () => { this.trackId = "" })
                 },
@@ -49,8 +49,8 @@
 
 <body>
     <div id="hero"
-        class="flex flex-col justify-center bg-[url(aot-leitmotif/assets/wall_maria.png)] bg-gray-500/50 bg-blend-darken bg-bottom bg-cover min-h-dvh">
-        <img src="aot-leitmotif/assets/aot_logo.webp" alt="attack on titan logo" class="max-w-1/2 h-auto text-center block mx-auto">
+        class="flex flex-col justify-center bg-[url(/aot-leitmotif/assets/wall_maria.png)] bg-gray-500/50 bg-blend-darken bg-bottom bg-cover min-h-dvh">
+        <img src="/aot-leitmotif/assets/aot_logo.webp" alt="attack on titan logo" class="max-w-1/2 h-auto text-center block mx-auto">
         <h2 class="font-serif text-center text-4xl text-white [text-shadow:_4px_4px_0_rgb(0_0_0_/_40%)]">Leitmotif suite
         </h2>
     </div>

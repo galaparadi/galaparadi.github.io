@@ -12,7 +12,7 @@
             Alpine.store('page', true)
             Alpine.store('track', {
                 init() {
-                    fetch("/data.json").then(response => response.json()).then((data) => this.suites = data)
+                    fetch("data.json").then(response => response.json()).then((data) => this.suites = data)
                     this.player = document.querySelector('audio')
                     this.player.addEventListener("pause", () => { this.playing = false; this.trackId = "" })
                     this.player.addEventListener("playing", () => { this.playing = true })

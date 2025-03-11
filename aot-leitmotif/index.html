@@ -9,14 +9,17 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script>
         document.addEventListener('alpine:init', () => {
-            Alpine.data('track', () => ({
+            Alpine.store('page', true)
+            Alpine.store('track', {
                 init() {
-                    fetch("/aot-leitmotif/data.json").then(response => response.json()).then((data) => this.suites = data)
+                    fetch("/data.json").then(response => response.json()).then((data) => this.suites = data)
                     this.player = document.querySelector('audio')
-                    this.player.addEventListener("pause", () => { this.trackId = "" })
+                    this.player.addEventListener("pause", () => { this.playing = false; this.trackId = "" })
+                    this.player.addEventListener("playing", () => { this.playing = true })
                 },
                 suites: [],
                 player: {},
+                playing: false,
                 trackId: "",
                 timeouttrack: {},
                 error: false,
@@ -39,36 +42,83 @@
                         clearTimeout(this.timeouttrack)
                     }
                 }
-            }))
+            })
         })
     </script>
     <style>
-        
+        @font-face {
+            font-family: 'angle';
+            /*a name to be used later*/
+            src: url('assets/angle_wish.ttf');
+            /*URL to font*/
+        }
     </style>
 </head>
 
-<body>
-    <div id="hero"
-        class="flex flex-col justify-center bg-[url(/aot-leitmotif/assets/wall_maria.png)] bg-gray-500/50 bg-blend-darken bg-bottom bg-cover min-h-dvh">
-        <img src="/aot-leitmotif/assets/aot_logo.webp" alt="attack on titan logo" class="max-w-1/2 h-auto text-center block mx-auto">
-        <h2 class="font-serif text-center text-4xl text-white [text-shadow:_4px_4px_0_rgb(0_0_0_/_40%)]">Leitmotif suite
+<body class="[&::-webkit-scrollbar]:w-2
+[&::-webkit-scrollbar-track]:bg-gray-100
+[&::-webkit-scrollbar-thumb]:bg-gray-300
+dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+    <div x-data id="hero"
+        class="flex flex-col justify-center bg-[url(assets/wall_maria.png)] bg-gray-500/50 bg-blend-darken bg-bottom bg-cover min-h-dvh">
+        <img src="assets/aot_logo.webp" alt="attack on titan logo"
+            class="lg:max-w-1/2 max-w-2/3 h-auto text-center block mx-auto">
+        <h2 class="font-serif text-center lg:text-4xl text-xl text-white [text-shadow:_4px_4px_0_rgb(0_0_0_/_40%)]">
+            Leitmotif suite
         </h2>
     </div>
-    <div x-data="track" @click.self="stop()" id="content" class="bg-gray-950 text-gray-300 min-h-dvh">
+    <div id="content" x-data="{currentNav: 1}" class="flex flex-col bg-gray-950 text-gray-300 min-h-dvh">
         <audio id="track">
         </audio>
-        <template x-for="suite in suites">
-            <div class="border-b border-gray-400">
-                <h1 class="ml-2 text-lg" x-text="suite.name"></h1>
-                <div @click.self="stop()">
-                    <template x-for="track in suite.tracks">
-                        <button x-bind:class="trackId === track.id ? 'bg-gray-100 text-gray-900 border-none' : ''"
-                            class="px-2 m-2 rounded border border-gray-50" @click="play(track.url,track.seek,track.id)">
-                            <span x-text="track.name"></span>
-                            <span x-show="trackId === track.id">
-                                playing. . .</span>
-                        </button>
-                    </template>
+        <nav id="suite-nav" class="sm:order-first order-last sm:overflow-auto overflow-x-scroll">
+            <ul class="w-3/4 flex gap-2">
+                <template x-for="suite in $store.track.suites">
+                    <button :class="currentNav == suite.id ? 'bg-gray-100 text-gray-900 border-none':''"
+                        class="cursor-pointer grow px-2 border border-gray-50" @click="currentNav = suite.id"
+                        x-text="suite.name"></button>
+                </template>
+            </ul>
+        </nav>
+        <template x-for="suite in $store.track.suites">
+            <div id="suite-content" x-show="currentNav === suite.id" @click.self="$store.track.stop()"
+                class="flex sm:flex-row flex-col grow font-serif border-gray-400">
+                <div x-data="{albumcover :''}"
+                    class="sm:order-first order-last flex flex-col sm:w-1/4 w-full sm:flex-none grow"
+                    @click.self="$store.track.stop()">
+                    <h1 @click="$store.track.stop()" class="ml-2 my-2 sm:text-6xl text-4xl" x-text="suite.name"></h1>
+                    <nav id="track-nav" class="flex flex-col sm:mr-2 mx-2 sm:mt-0 mt-auto justify-stretch">
+                        <template x-for="track in suite.tracks">
+                            <button
+                                x-bind:class="$store.track.trackId === track.id ? 'bg-gray-100 text-gray-900 border-none' : ''"
+                                class="grow wrap cursor-pointer px-2 mb-2 rounded border border-gray-50"
+                                @click="$store.track.play(track.url,track.seek,track.id); albumcover = track.album">
+                                <span class="sm:text-lg text-base" x-text="track.name"></span>
+                                <span x-show="$store.track.trackId === track.id && false">
+                                    playing. . .</span>
+                            </button>
+                        </template>
+                    </nav>
+                    <div id="album-cover" x-show="$store.track.playing == true && albumcover != ''"
+                        class="mt-auto px-2 m-2 sm:flex hidden">
+                        <!-- TODO: tampilkan hanya ketika player sedang playing -->
+                        <img class="object-cover w-1/2 rounded" :src="`assets/albums/${albumcover}.jpg`" alt="album">
+                        <div id="music-link" class="ml-4">
+                            <ul>
+                                <li>youtube music</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="track-cover" class="relative sm:w-3/4 w-full overflow-hidden" x-show="$store.track.playing"
+                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                    <img class="relative object-cover w-auto h-full" :src="`assets/cover/${$store.track.trackId}.png`"
+                        alt="track cover" srcset="">
+                    <div
+                        class="absolute sm:bg-gradient-to-r bg-linear-to-t from-gray-950 to-transparent to-70% w-full h-full top-0">
+                    </div>
                 </div>
             </div>
         </template>

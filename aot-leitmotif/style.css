@@ -7,11 +7,16 @@
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-300: oklch(0.808 0.114 19.571);
+    --color-red-400: oklch(0.704 0.191 22.216);
+    --color-amber-300: oklch(0.879 0.169 91.605);
     --color-gray-50: oklch(0.985 0.002 247.839);
     --color-gray-100: oklch(0.967 0.003 264.542);
+    --color-gray-200: oklch(0.928 0.006 264.531);
     --color-gray-300: oklch(0.872 0.01 258.338);
     --color-gray-400: oklch(0.707 0.022 261.325);
     --color-gray-500: oklch(0.551 0.027 264.364);
+    --color-gray-600: oklch(0.446 0.03 256.802);
     --color-gray-900: oklch(0.21 0.034 264.665);
     --color-gray-950: oklch(0.13 0.028 261.692);
     --color-neutral-500: oklch(0.556 0 0);
@@ -30,6 +35,7 @@
     --text-6xl--line-height: 1;
     --font-weight-thin: 100;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --animate-spin: spin 1s linear infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -224,6 +230,9 @@
   .mt-auto {
     margin-top: auto;
   }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -241,6 +250,16 @@
   }
   .table {
     display: table;
+  }
+  .size-5 {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
   }
   .h-64 {
     height: calc(var(--spacing) * 64);
@@ -269,6 +288,12 @@
   .w-3\/4 {
     width: calc(3/4 * 100%);
   }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
   .w-full {
     width: 100%;
   }
@@ -289,6 +314,9 @@
   }
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+  .animate-spin {
+    animation: var(--animate-spin);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -328,6 +356,9 @@
   .border-gray-400 {
     border-color: var(--color-gray-400);
   }
+  .bg-amber-300 {
+    background-color: var(--color-amber-300);
+  }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
@@ -340,6 +371,12 @@
   .bg-gray-950 {
     background-color: var(--color-gray-950);
   }
+  .bg-red-300 {
+    background-color: var(--color-red-300);
+  }
+  .bg-red-400 {
+    background-color: var(--color-red-400);
+  }
   .bg-linear-to-t {
     --tw-gradient-position: to top in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
@@ -350,14 +387,8 @@
   .bg-\[image\:var\(--track-url\)\] {
     background-image: var(--track-url);
   }
-  .bg-\[url\(--track-url\)\] {
-    background-image: url(--track-url);
-  }
   .bg-\[url\(assets\/wall_maria\.png\)\] {
     background-image: url(assets/wall_maria.png);
-  }
-  .bg-\[url\(var\(--track-url\)\)\] {
-    background-image: url(var(--track-url));
   }
   .from-gray-950 {
     --tw-gradient-from: var(--color-gray-950);
@@ -381,6 +412,9 @@
   }
   .bg-no-repeat {
     background-repeat: no-repeat;
+  }
+  .fill-gray-600 {
+    fill: var(--color-gray-600);
   }
   .object-cover {
     object-fit: cover;
@@ -409,6 +443,12 @@
   .font-thin {
     --tw-font-weight: var(--font-weight-thin);
     font-weight: var(--font-weight-thin);
+  }
+  .text-gray-100 {
+    color: var(--color-gray-100);
+  }
+  .text-gray-200 {
+    color: var(--color-gray-200);
   }
   .text-gray-300 {
     color: var(--color-gray-300);
@@ -452,14 +492,6 @@
   }
   .\[text-shadow\:_4px_4px_0_rgb\(0_0_0_\/_40\%\)\] {
     text-shadow:  4px 4px 0 rgb(0 0 0 / 40%);
-  }
-  .hover\:border {
-    &:hover {
-      @media (hover: hover) {
-        border-style: var(--tw-border-style);
-        border-width: 1px;
-      }
-    }
   }
   .sm\:top-0 {
     @media (width >= 40rem) {
@@ -568,6 +600,16 @@
     @media (width >= 64rem) {
       font-size: var(--text-4xl);
       line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .dark\:fill-gray-300 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-gray-300);
+    }
+  }
+  .dark\:text-gray-600 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-600);
     }
   }
   .\[\&\:\:-webkit-scrollbar\]\:w-2 {
@@ -688,4 +730,9 @@
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

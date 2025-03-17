@@ -8,28 +8,44 @@
                 "id": 81,
                 "seek": 114.8,
                 "url": "assets/tracks/05. counter・attack-mankind.mp3",
-                "album": 1
+                "album": 1,
+                "episodeframe": "Episode 5",
+                "platform": {
+                    "youtube": "https://music.youtube.com/watch?v=icSrzREkNJM"
+                }
             },
             {
                 "name": "ERENthe標",
                 "id": 82,
                 "seek": 297.8,
                 "url": "assets/tracks/1.06 ERENthe標.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 27",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "進撃vc-pf20130218巨人",
                 "id": 84,
                 "seek": 52.4,
                 "url": "assets/tracks/2.11 進撃vc-pf20130218巨人.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 32",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "So ist es immer",
                 "id": 83,
                 "seek": 66.4,
                 "url": "assets/tracks/1.11 So ist es immer.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "OAD No Regret Part 2",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -42,49 +58,77 @@
                 "id": 41,
                 "seek": 67,
                 "url": "assets/tracks/15. Call Your Name.mp3",
-                "album": 1
+                "album": 1,
+                "episodeframe": "Episode 16",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "Call your name <GV>",
                 "id": 42,
                 "seek": 65.8,
                 "url": "assets/tracks/1.09 Call your name _Gv_.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "OAD Lost Girls (Ending)",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "TheWeightOfLives",
                 "id": 44,
                 "seek": 80.8,
                 "url": "assets/tracks/2.12 TheWeightOfLives.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 32",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "進撃st-hrn-egt20130629巨人",
                 "id": 45,
                 "seek": 218.4,
                 "url": "assets/tracks/1.10 進撃st-hrn-egt20130629巨人.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 25",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "進撃vn-pf20130524巨人",
                 "id": 46,
                 "seek": 112,
                 "url": "assets/tracks/2.07 進撃vn-pf20130524巨人.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 21",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "attack音D",
                 "id": 43,
                 "seek": 225.5,
                 "url": "assets/tracks/1.07 attack音D.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 37",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "進撃pf-medley20130629巨人",
                 "id": 47,
                 "seek": 109,
                 "url": "assets/tracks/2.01 進撃pf-medley20130629巨人.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 22",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -97,35 +141,55 @@
                 "id": 11,
                 "seek": 148.7,
                 "url": "assets/tracks/15. Call Your Name.mp3",
-                "album": 1
+                "album": 1,
+                "episodeframe": "Episode 13",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "Call your name <GV>",
                 "id": 15,
                 "seek": 144.3,
                 "url": "assets/tracks/1.09 Call your name _Gv_.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "OAD Lost Girls (Ending)",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "Call of Silence",
                 "id": 14,
                 "seek": 103.7,
                 "url": "assets/tracks/1.05 Call of Silence.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 35",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "eye-water",
                 "id": 12,
                 "seek": 106.5,
                 "url": "assets/tracks/03. Eye-Water.mp3",
-                "album": 1
+                "album": 1,
+                "episodeframe": "Episode 33",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "進撃gt20130218巨人",
                 "id": 13,
                 "seek": 75,
                 "url": "assets/tracks/2.04 進撃gt20130218巨人.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 2",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -138,28 +202,44 @@
                 "id": 21,
                 "seek": 87.8,
                 "url": "assets/tracks/1.03 YouSeeBIGGIRL-T-T.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 31",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "Apple Seed",
                 "id": 22,
                 "seek": 87.5,
                 "url": "assets/tracks/1.14 SymphonicSuite[AoT]Part2-5th-Apple Seed.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 52",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "attack音D",
                 "id": 23,
                 "seek": 112.6,
                 "url": "assets/tracks/1.07 attack音D.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 37",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "AOTs2M他3",
                 "id": 24,
                 "seek": 112.4,
                 "url": "assets/tracks/2.16 AOTs2M他3.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 30",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -172,14 +252,22 @@
                 "id": 31,
                 "seek": 286,
                 "url": "assets/tracks/07. Vogel im Kafig _Vocal- Cyua_.mp3",
-                "album": 1
+                "album": 1,
+                "episodeframe": "Episode 1",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "YouSeeBIGGIRL/T:T",
                 "id": 32,
                 "seek": 275.8,
                 "url": "assets/tracks/1.03 YouSeeBIGGIRL-T-T.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 31",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -192,14 +280,22 @@
                 "id": 91,
                 "seek": 67,
                 "url": "assets/tracks/1.16 theDOGS.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 91",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "TWO-lives",
                 "id": 92,
                 "seek": 202.7,
                 "url": "assets/tracks/2.05 TWO-lives.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 85",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "2Volt",
@@ -226,28 +322,44 @@
                 "id": 71,
                 "seek": 59.2,
                 "url": "assets/tracks/1.01 Barricades.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 37",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "AOTs2M他1",
                 "id": 72,
                 "seek": 207.6,
                 "url": "assets/tracks/2.14 AOTs2M他1.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 35",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "BARRIchestra",
                 "id": 73,
                 "seek": 137,
                 "url": "assets/tracks/1.05 SymphonicSuite[AoT]Part1-3rd-BARRIchestra.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 46",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "BARRIchestra (2nd part)",
                 "id": 74,
                 "seek": 285,
                 "url": "assets/tracks/1.05 SymphonicSuite[AoT]Part1-3rd-BARRIchestra.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 47",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -260,35 +372,55 @@
                 "id": 51,
                 "seek": 102.8,
                 "url": "assets/tracks/1.02 APETITAN.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 36",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "APETITAN (2nd part)",
                 "id": 52,
                 "seek": 250.5,
                 "url": "assets/tracks/1.02 APETITAN.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 73",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "Before Lights Out",
                 "id": 55,
                 "seek": 112.2,
                 "url": "assets/tracks/1.12 SymphonicSuite[AoT]Part2-3rd-Before Lights Out.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 52",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "tooth-i:",
                 "id": 53,
                 "seek": 112.5,
                 "url": "assets/tracks/2.06 tooth-i-.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 53",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "AOTs2M他3",
                 "id": 54,
                 "seek": 44,
                 "url": "assets/tracks/2.16 AOTs2M他3.mp3",
-                "album": 2
+                "album": 2,
+                "episodeframe": "Episode 91",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     },
@@ -301,28 +433,44 @@
                 "id": 61,
                 "seek": 67.2,
                 "url": "assets/tracks/2.07 LENぞ97n10火巨説MAHLE.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 56",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "ShingekiNoKyojin",
                 "id": 62,
                 "seek": 101.4,
                 "url": "assets/tracks/1.11 SymphonicSuite[AoT]Part2-2nd-ShingekiNoKyojin.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 54",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "ThanksAT",
                 "id": 63,
                 "seek": 130,
                 "url": "assets/tracks/1.15 SymphonicSuite[AoT]Part2-6th-ThanksAT.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 55",
+                "platform": {
+                    "youtube": ""
+                }
             },
             {
                 "name": "T-KT",
                 "id": 64,
                 "seek": 99.2,
                 "url": "assets/tracks/2.02 T-KT.mp3",
-                "album": 3
+                "album": 3,
+                "episodeframe": "Episode 59",
+                "platform": {
+                    "youtube": ""
+                }
             }
         ]
     }

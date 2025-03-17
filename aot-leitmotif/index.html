@@ -14,7 +14,7 @@
                 init() {
                     fetch("data.json").then(response => response.json()).then((data) => this.suites = data)
                     this.player = document.querySelector('audio')
-                    this.player.addEventListener("pause", () => { this.playing = false; this.trackId = 0})
+                    this.player.addEventListener("pause", () => { this.playing = false; this.trackId = 0 })
                     this.player.addEventListener("play", (event) => { this.loading = true })
                     this.player.addEventListener("playing", (event) => {
                         if (event.target.readyState >= 3) this.loading = false
@@ -38,11 +38,9 @@
                     this.player.load()
                     this.player.currentTime = seek
                     await this.player.play()
-                    // this.timeouttrack = setTimeout(() => { this.stop() }, 15000)
                 },
                 stop() {
                     this.destroy()
-                    // if(this.trackId)
                     this.loaded = false
                     this.player.pause()
                     this.player.currentTime = 0
@@ -82,18 +80,18 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
         <audio id="track">
         </audio>
         <nav id="suite-nav" class="sm:order-first order-last sm:overflow-auto overflow-x-scroll">
-            <ul class="w-3/4 flex gap-2">
+            <ul class="sm:w-3/4 w-auto flex gap-2 sm:mb-0 sm:mx-0 mx-2 mb-2">
                 <template x-for="suite in $store.track.suites">
                     <button :class="currentNav == suite.id ? 'bg-gray-100 text-gray-900 border-none':''"
-                        class="cursor-pointer grow px-2 border border-gray-50" @click="currentNav = suite.id"
-                        x-text="suite.name"></button>
+                        class="sm:min-w-auto min-w-1/3 cursor-pointer grow px-2 border border-gray-50"
+                        @click="currentNav = suite.id" x-text="suite.name"></button>
                 </template>
             </ul>
         </nav>
         <template x-for="suite in $store.track.suites">
             <div id="suite-content" x-show="currentNav === suite.id" @click.self="$store.track.stop()"
                 class="flex sm:flex-row flex-col grow font-serif border-gray-400">
-                <div x-data="{albumcover :''}"
+                <div x-data="{currentTrack : {}}"
                     class="sm:order-first order-last flex flex-col sm:w-1/4 w-full sm:flex-none grow"
                     @click.self="$store.track.stop()">
                     <h1 @click="$store.track.stop()" class="font-thin ml-2 my-2 sm:text-6xl text-4xl"
@@ -104,7 +102,7 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                             <button
                                 x-bind:class="$store.track.trackId === track.id ? 'bg-gray-100 text-gray-900 border-none' : ''"
                                 class="grow wrap cursor-pointer px-2 mb-2 rounded border border-gray-50"
-                                @click="$store.track.play(track.url,track.seek,track.id); albumcover = track.album">
+                                @click="$store.track.play(track.url,track.seek,track.id); currentTrack = track">
                                 <span class="sm:text-lg text-base" x-text="track.name"></span>
                             </button>
                         </template>
@@ -123,26 +121,37 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                             </span>
                         </div>
                     </nav>
-                    <div id="album-cover" x-show="$store.track.playing == true" class="sm:mt-auto px-2 m-2 flex">
+                    <div id="album-cover" x-show="$store.track.playing == true" class="sm:mt-auto px-2 m-2 flex gap-2">
                         <div class="rounded sm:w-1/2 w-1/3 bg-gray-950 bg-cover bg-no-repeat transition-[background-image] ease-in duration-200"
-                            :style="{'--album-url': `url(assets/albums/${albumcover}.jpg)`}"
+                            :style="{'--album-url': `url(assets/albums/${currentTrack.album}.jpg)`}"
                             :class="`bg-[image:var(--album-url)]`">
-                            <img class="object-cover w-full rounded opacity-0" :src="`assets/albums/${albumcover}.jpg`"
-                                alt="album">
+                            <img class="object-cover w-full rounded opacity-0"
+                                :src="`assets/albums/${currentTrack.album}.jpg`" alt="album">
                         </div>
-                        <div id="music-link" class="sm:w-1/2 w-2/3">
-                            <ul>
-                                <li></li>
-                            </ul>
+                        <div id="track-description" class="ml-4 sm:w-1/2 w-2/3 flex flex-col">
+                            <div><span x-text="currentTrack.episodeframe"></span></div>
+                            <div class="mt-auto">
+                                <p>Stream Platform</p>
+                                <ul>
+                                    <li><a class="underline" target="_blank" rel="noopener noreferrer" :href="currentTrack.platform.youtube">Youtube Music</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div id="track-cover"
-                    class="relative sm:w-3/4 w-full sm:h-auto h-64 bg-gray-950 bg-cover bg-center bg-no-repeat transition-[background-image] ease-in duration-200"
+                    class="relative sm:w-3/4 w-full bg-gray-950 bg-cover bg-center bg-no-repeat transition-[background-image] ease-in duration-200"
                     :class="`bg-[image:var(--track-url)]`"
                     :style="{'--track-url': `url(assets/cover/${$store.track.trackId}.png)`}">
-                    <div class="sm:bg-gradient-to-r bg-linear-to-t from-gray-950 to-transparent to-70% sm:w-full sm:h-full h-64
-                    sm:top-0 bottom-0">
+                    <!-- make cover heigh transition -->
+                    <img class="object-cover rounded opacity-0" src="assets/cover/0.png" alt="album"
+                        x-show="$store.track.trackId !== 0"
+                        x-transition:enter="transition-[max-height] ease-out duration-600"
+                        x-transition:enter-start="max-h-0" x-transition:enter-end="max-h-64"
+                        x-transition:leave="transition-[max-height] ease-out duration-600"
+                        x-transition:leave-start="max-h-64" x-transition:leave-end="max-h-0" />
+                    <div
+                        class="absolute h-full w-full sm:bg-gradient-to-r bg-linear-to-t from-gray-950 to-transparent to-70% sm:w-full sm:top-0 bottom-0">
                     </div>
                 </div>
             </div>

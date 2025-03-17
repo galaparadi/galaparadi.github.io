@@ -129,6 +129,7 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                                 :src="`assets/albums/${currentTrack.album}.jpg`" alt="album">
                         </div>
                         <div id="track-description" class="ml-4 sm:w-1/2 w-2/3 flex flex-col">
+                            <!-- TODO: hide while current track is not playing -->
                             <div><span x-text="currentTrack.episodeframe"></span></div>
                             <div class="mt-auto">
                                 <p>Stream Platform</p>

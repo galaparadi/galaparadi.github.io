@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AOT Leitmotif Suite</title>
 
-    <meta name="description"
-        content="desc">
+    <meta name="description" content="desc">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://galaparadi.github.io/aot-leitmotif/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="AOT Leitmotif Suite">
-    <meta property="og:description"
-        content="desc">
+    <meta property="og:description" content="desc">
     <meta property="og:image" content="https://galaparadi.github.io/aot-leitmotif/assets/aot_logo.webp">
 
     <!-- Twitter Meta Tags -->
@@ -22,8 +20,7 @@
     <meta property="twitter:domain" content="galaparadi.github.io">
     <meta property="twitter:url" content="https://galaparadi.github.io/aot-leitmotif/">
     <meta name="twitter:title" content="AOT Leitmotif Suite">
-    <meta name="twitter:description"
-        content="desc">
+    <meta name="twitter:description" content="desc">
     <meta name="twitter:image" content="https://galaparadi.github.io/aot-leitmotif/assets/aot_logo.webp">
 
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->
@@ -91,19 +88,35 @@
 [&::-webkit-scrollbar-thumb]:bg-gray-300
 dark:[&::-webkit-scrollbar-track]:bg-neutral-700
 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-    <div x-data id="hero"
-        class="flex flex-col justify-center bg-[url(assets/wall_maria.png)] bg-gray-500/50 bg-blend-darken bg-bottom bg-cover min-h-dvh">
-        <img src="assets/aot_logo.webp" alt="attack on titan logo"
-            class="lg:max-w-1/2 max-w-2/3 h-auto text-center block mx-auto">
-        <h2 class="font-serif text-center lg:text-4xl text-xl text-white [text-shadow:_4px_4px_0_rgb(0_0_0_/_40%)]">
-            Leitmotif suite
-        </h2>
+    <div x-data id="hero" class="flex sm:flex-row flex-col justify-center bg-gray-950 bg-blend-darken min-h-dvh">
+        <div class="flex flex-col justify-center grow bg-gray-950 sm:w-1/2 sm:h-auto h-1/2">
+            <div class="text-gray-200 m-4">
+                <p class="text-wrap font-serif my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+                    reiciendis ab, harum, rerum natus
+                    nihil dignissimos perferendis, dicta illo aliquam rem exercitationem. Eos recusandae numquam
+                    sapiente
+                    quis esse reprehenderit labore?</p>
+                <a href="#content" class="p-2 border border-gray-400 text-gray-200">Play</a>
+            </div>
+        </div>
+        <div
+            class="flex flex-col grow sm:order-last order-first relative sm:w-1/2 sm:h-auto h-1/2 justify-center bg-[url(assets/wall_maria.png)] bg-bottom bg-cover">
+            <img src="assets/aot_logo.webp" alt="attack on titan logo"
+                class="lg:max-w-1/2 max-w-2/3 h-auto text-center block mx-auto z-50">
+            <h2
+                class="font-serif text-center lg:text-4xl text-xl text-white [text-shadow:_4px_4px_0_rgb(0_0_0_/_40%)] z-50">
+                Leitmotif suite
+            </h2>
+            <div
+                class="absolute h-full w-full sm:bg-gradient-to-r bg-linear-to-t from-gray-950 to-transparent to-70% sm:w-full sm:top-0 bottom-0">
+            </div>
+        </div>
     </div>
     <div id="content" x-data="{currentNav: 1}" class="flex flex-col bg-gray-950 text-gray-300 min-h-dvh">
         <audio id="track">
         </audio>
         <nav id="suite-nav" class="sm:order-first order-last sm:overflow-auto overflow-x-scroll">
-            <ul class="sm:w-3/4 w-auto flex gap-2 sm:mb-0 sm:mx-0 mx-2 mb-2">
+            <ul class=" sm:w-3/4 w-auto flex gap-2 sm:mb-0 sm:mx-0 mx-2 mb-2">
                 <template x-for="suite in $store.track.suites">
                     <button :class="currentNav == suite.id ? 'bg-gray-100 text-gray-900 border-none':''"
                         class="sm:min-w-auto min-w-1/3 cursor-pointer grow px-2 border border-gray-50"
@@ -168,7 +181,6 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                     class="relative sm:w-3/4 w-full bg-gray-950 bg-cover bg-center bg-no-repeat transition-[background-image] ease-in duration-200"
                     :class="`bg-[image:var(--track-url)]`"
                     :style="{'--track-url': `url(assets/cover/${$store.track.trackId}.png)`}">
-                    <!-- make cover heigh transition -->
                     <img class="object-cover rounded opacity-0" src="assets/cover/0.png" alt="album"
                         x-show="$store.track.trackId !== 0"
                         x-transition:enter="transition-[max-height] ease-out duration-600"

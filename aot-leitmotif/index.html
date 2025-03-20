@@ -5,14 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AOT Leitmotif Suite</title>
+    <script defer src="alpine.js"></script>
 
-    <meta name="description" content="desc">
+    <link rel="preload" href="assets/albums/1.jpg" as="image" />
+    <link rel="preload" href="assets/albums/2.jpg" as="image" />
+    <link rel="preload" href="assets/albums/3.jpg" as="image" />
+
+    <link rel="preload" href="assets/cove/webpr/0.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/11.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/12.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/13.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/14.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/15.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/21.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/22.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/23.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/24.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/31.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/32.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/41.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/42.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/43.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/44.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/45.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/46.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/47.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/51.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/52.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/53.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/54.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/55.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/61.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/62.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/63.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/64.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/71.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/72.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/73.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/74.webp" as="image" />
+
+    <link rel="preload" href="assets/cover/webp/81.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/82.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/83.webp" as="image" />
+    <link rel="preload" href="assets/cover/webp/84.webp" as="image" />
+
+    <meta name="description" content="dddd">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://galaparadi.github.io/aot-leitmotif/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="AOT Leitmotif Suite">
-    <meta property="og:description" content="desc">
+    <meta property="og:description" content="dddd">
     <meta property="og:image" content="https://galaparadi.github.io/aot-leitmotif/assets/aot_logo.webp">
 
     <!-- Twitter Meta Tags -->
@@ -20,12 +69,11 @@
     <meta property="twitter:domain" content="galaparadi.github.io">
     <meta property="twitter:url" content="https://galaparadi.github.io/aot-leitmotif/">
     <meta name="twitter:title" content="AOT Leitmotif Suite">
-    <meta name="twitter:description" content="desc">
+    <meta name="twitter:description" content="dddd">
     <meta name="twitter:image" content="https://galaparadi.github.io/aot-leitmotif/assets/aot_logo.webp">
 
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
-    <script defer src="alpine.js"></script>
     <link href="style.css" rel="stylesheet">
     <script>
         document.addEventListener('alpine:init', () => {
@@ -91,11 +139,9 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
     <div x-data id="hero" class="flex sm:flex-row flex-col justify-center bg-gray-950 bg-blend-darken min-h-dvh">
         <div class="flex flex-col justify-center grow bg-gray-950 sm:w-1/2 sm:h-auto h-1/2">
             <div class="text-gray-200 m-4">
-                <p class="text-wrap font-serif my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-                    reiciendis ab, harum, rerum natus
-                    nihil dignissimos perferendis, dicta illo aliquam rem exercitationem. Eos recusandae numquam
-                    sapiente
-                    quis esse reprehenderit labore?</p>
+                <p class="text-wrap font-serif my-2">
+
+                </p>
                 <a href="#content" class="p-2 border border-gray-400 text-gray-200">Play</a>
             </div>
         </div>
@@ -180,7 +226,7 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                 <div id="track-cover"
                     class="relative sm:w-3/4 w-full bg-gray-950 bg-cover bg-center bg-no-repeat transition-[background-image] ease-in duration-200"
                     :class="`bg-[image:var(--track-url)]`"
-                    :style="{'--track-url': `url(assets/cover/${$store.track.trackId}.png)`}">
+                    :style="{'--track-url': `url(assets/cover/webp/${$store.track.trackId}.webp)`}">
                     <img class="object-cover rounded opacity-0" src="assets/cover/0.png" alt="album"
                         x-show="$store.track.trackId !== 0"
                         x-transition:enter="transition-[max-height] ease-out duration-600"

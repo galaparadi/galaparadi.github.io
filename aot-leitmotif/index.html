@@ -56,13 +56,13 @@
     <link rel="preload" href="assets/cover/webp/83.webp" as="image" />
     <link rel="preload" href="assets/cover/webp/84.webp" as="image" />
 
-    <meta name="description" content="dddd">
+    <meta name="description" content="A compilation of Attack on Titan soundtracks based on motifs">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://galaparadi.github.io/aot-leitmotif/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="AOT Leitmotif Suite">
-    <meta property="og:description" content="dddd">
+    <meta property="og:description" content="A compilation of Attack on Titan soundtracks based on motifs">
     <meta property="og:image" content="https://galaparadi.github.io/aot-leitmotif/assets/aot_logo.webp">
 
     <!-- Twitter Meta Tags -->
@@ -70,7 +70,7 @@
     <meta property="twitter:domain" content="galaparadi.github.io">
     <meta property="twitter:url" content="https://galaparadi.github.io/aot-leitmotif/">
     <meta name="twitter:title" content="AOT Leitmotif Suite">
-    <meta name="twitter:description" content="dddd">
+    <meta name="twitter:description" content="A compilation of Attack on Titan soundtracks based on motifs">
     <meta name="twitter:image" content="https://galaparadi.github.io/aot-leitmotif/assets/aot_logo.webp">
 
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->
@@ -159,7 +159,8 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
             </div>
         </div>
     </div>
-    <div id="content" x-data="{currentNav: 1}" class="flex flex-col bg-gray-950 text-gray-300 min-h-dvh">
+    <div id="content" x-data="{currentNav: 1, currentTrack : {}}"
+        class="flex flex-col bg-gray-950 text-gray-300 min-h-dvh">
         <audio id="track">
         </audio>
         <nav id="suite-nav" class="sm:order-first order-last sm:overflow-auto overflow-x-scroll">
@@ -174,8 +175,7 @@ dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
         <template x-for="suite in $store.track.suites">
             <div id="suite-content" x-show="currentNav === suite.id" @click.self="$store.track.stop()"
                 class="flex sm:flex-row flex-col grow font-serif border-gray-400">
-                <div x-data="{currentTrack : {}}"
-                    class="sm:order-first order-last flex flex-col sm:w-1/4 w-full sm:flex-none grow"
+                <div x-data class="sm:order-first order-last flex flex-col sm:w-1/4 w-full sm:flex-none grow"
                     @click.self="$store.track.stop()">
                     <h1 @click="$store.track.stop()" class="font-thin ml-2 my-2 sm:text-6xl text-4xl"
                         x-text="suite.name"></h1>

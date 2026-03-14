@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROT Cipher</title>
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #38bdf8;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            margin: 0.5rem 0 1rem 0;
+            padding: 2px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: var(--text);
+            resize: vertical;
+            font-size: 0.95rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--accent);
+            color: #0f172a;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .config {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        input[type="number"] {
+            width: 3rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: var(--text);
+            text-align: center;
+        }
+
+        label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buttons select {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: #334155;
+            border-radius: 24px;
+            transition: 0.3s;
+        }
+
+        .slider::before {
+            content: "";
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            top: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .switch input:checked+.slider {
+            background: #3b82f6;
+        }
+
+        .switch input:checked+.slider::before {
+            transform: translateX(22px);
+        }
+
+        @media (max-width: 600px) {
+            input[type="number"] {
+                width: 2rem;
+            }
+
+
+            .container {
+                padding: 1.25rem;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .config {
+                flex-direction: column;
+            }
+
+            label {
+                text-align: left;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            textarea {
+                /* min-height: 90px; */
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>KVROT Machine</h1>
+
+        <div class="config">
+            <div class="field">
+                <label>ko</label>
+                <input type="number" id="ko" value="1">
+            </div>
+            <div class="field">
+                <label>vo</label>
+                <input type="number" id="vo" value="2">
+            </div>
+            <div class="field">
+                <label>ks</label>
+                <input type="number" id="ks" value="3">
+            </div>
+            <div class="field">
+                <label>vs</label>
+                <input type="number" id="vs" value="4">
+            </div>
+            <div class="field">
+                <div class="buttons">
+                    <div class="toggle">
+                        <span>Decrypt</span>
+
+                        <label class="switch">
+                            <input type="checkbox" id="mode" checked>
+                            <span class="slider"></span>
+                        </label>
+
+                        <span>Encrypt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <label>Input</label>
+        <textarea id="input"></textarea>
+
+        <label>Output</label>
+        <textarea id="output" readonly></textarea>
+    </div>
+
+    <script>
+        const KL = "BCDFGHJKLMNPQRSTVWXYZ";
+        const VL = "AEIOU";
+
+        const KL_MAP = Object.fromEntries([...KL].map((c, i) => [c, i]));
+        const VL_MAP = Object.fromEntries([...VL].map((c, i) => [c, i]));
+
+        function randomInt(max) {
+            return Math.floor(Math.random() * (max + 1));
+        }
+
+        function initializeDefaults() {
+            document.getElementById("ko").value = randomInt(9999);
+            document.getElementById("ks").value = randomInt(9999);
+            document.getElementById("vo").value = randomInt(9999);
+            document.getElementById("vs").value = randomInt(9999);
+
+            document.getElementById("input").value = "The quick brown fox jumps over the lazy dog";
+        }
+
+        function createConf() {
+            return {
+                ko: Math.abs(Number(document.getElementById("ko").value)),
+                vo: Math.abs(Number(document.getElementById("vo").value)),
+                ks: Math.abs(Number(document.getElementById("ks").value)),
+                vs: Math.abs(Number(document.getElementById("vs").value)),
+            };
+        }
+
+        function encryptROT(plain, conf) {
+            let result = "";
+            let tks = conf.ks;
+            let tvs = conf.vs;
+
+            for (const v of plain) {
+                if (KL_MAP[v] !== undefined) {
+                    const idx = KL_MAP[v];
+                    const newIndex = (idx + conf.ko + tks) % KL.length;
+                    result += KL[newIndex];
+                    tks += tks % KL.length;
+                    continue;
+                }
+
+                if (VL_MAP[v] !== undefined) {
+                    const idx = VL_MAP[v];
+                    const newIndex = (idx + conf.vo + tvs) % VL.length;
+                    result += VL[newIndex];
+                    tvs += tvs % VL.length;
+                    continue;
+                }
+
+                result += v;
+            }
+
+            return result;
+        }
+
+        function decryptROT(cipher, conf) {
+            let result = "";
+            let tks = conf.ks;
+            let tvs = conf.vs;
+
+            for (const v of cipher) {
+                if (KL_MAP[v] !== undefined) {
+                    const idx = KL_MAP[v];
+                    const shift = (conf.ko + tks) % KL.length;
+                    const newIndex = (idx - shift + KL.length) % KL.length;
+                    result += KL[newIndex];
+                    tks += tks % KL.length;
+                    continue;
+                }
+
+                if (VL_MAP[v] !== undefined) {
+                    const idx = VL_MAP[v];
+                    const shift = (conf.vo + tvs) % VL.length;
+                    const newIndex = (idx - shift + VL.length) % VL.length;
+                    result += VL[newIndex];
+                    tvs += tvs % VL.length;
+                    continue;
+                }
+
+                result += v;
+            }
+
+            return result;
+        }
+
+        function handleAction() {
+            const conf = createConf();
+            const input = document.getElementById("input").value;
+            const isEncrypt = document.getElementById("mode").checked;
+
+            let result = "";
+
+            if (isEncrypt) {
+                result = encryptROT(input.toUpperCase(), conf);
+            } else {
+                result = decryptROT(input.toUpperCase(), conf);
+            }
+
+            document.getElementById("output").value = result;
+        }
+
+        // Auto trigger handleAction saat input berubah
+        ["ko", "ks", "vo", "vs", "input"].forEach(id => {
+            document.getElementById(id).addEventListener("input", handleAction);
+        });
+
+        // Untuk checkbox mode
+        document.getElementById("mode").addEventListener("change", handleAction);
+
+        initializeDefaults();
+
+        // Optional: jalankan sekali saat halaman pertama kali dibuka
+        handleAction();
+    </script>
+
+</body>
+
+</html>

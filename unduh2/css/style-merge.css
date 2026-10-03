@@ -1,0 +1,1641 @@
+/* =====================================================================
+   BALAI LELANG — DESIGN SYSTEM STYLESHEET
+   Digabung dari 5 template:
+   - dashboard_tmpl.html   (Detail barang / dashboard lelang aktif)
+   - login_tmpl.html       (Halaman masuk)
+   - stock-list_tmpl.html  (Daftar barang lelang)
+   - stock-form_tmpl.html  (Tambah barang + crop gambar)
+   - control_tmpl.html     (Kontrol tampilan lelang)
+
+   CARA PAKAI:
+   Beberapa nama class dipakai ulang di lebih dari satu halaman dengan
+   nilai yang berbeda (mis. .field, .btn-primary, .divider, .layout,
+   .brand). Supaya tidak saling menimpa saat file ini dipakai bersama
+   di semua halaman, tambahkan salah satu class berikut ke tag <body>
+   masing-masing halaman:
+
+     dashboard_tmpl.html   -> <body class="page-dashboard">
+     login_tmpl.html       -> <body class="page-login">
+     stock-list_tmpl.html  -> <body class="page-stock-list">
+     stock-form_tmpl.html  -> <body class="page-stock-form">
+     control_tmpl.html     -> <body class="page-control">
+
+   CATATAN LAIN:
+   - Google Fonts yang perlu di-link: Fraunces (400/500/600),
+     Inter (400/500/600). "JetBrains Mono" di-import di control_tmpl.html
+     tapi tidak dipakai sama sekali di CSS-nya — aman dihapus dari link.
+   - --live/--live-soft (control) nilainya identik dengan
+     --urgent/--urgent-soft (dashboard), sama-sama #B5442E / #F6E9E5.
+     Dipertahankan sebagai dua nama terpisah sesuai konteks pemakaian
+     masing-masing (bisa disatukan kalau mau lebih ringkas).
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. VARIABLES
+   --------------------------------------------------------------------- */
+:root {
+  --bg: #FAFAF8;
+  --panel: #FFFFFF;
+  --ink: #14181C;
+  --muted: #6B7280;
+  --line: #E4E1DA;
+  --accent: #1F5F4F;
+  --accent-soft: #E8F0EE;
+  --urgent: #B5442E;
+  --urgent-soft: #F6E9E5;
+  --live: #B5442E;
+  --live-soft: #F6E9E5;
+  --radius: 4px;
+}
+
+/* ---------------------------------------------------------------------
+   2. RESET & BASE
+   --------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Login memakai body sebagai wrapper penengah kartu login */
+body.page-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ---------------------------------------------------------------------
+   3. SHARED LAYOUT — topbar, avatar, main, breadcrumb, judul halaman
+   (dipakai di dashboard, stock-list, stock-form, control)
+   --------------------------------------------------------------------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar .brand {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.topbar .brand span {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 40px 100px; /* default: stock-list, stock-form, control */
+}
+
+body.page-dashboard main {
+  padding: 48px 40px 80px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px; /* default: stock-list, stock-form, control */
+}
+
+body.page-dashboard .breadcrumb {
+  margin-bottom: 28px;
+}
+
+.breadcrumb b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+h1.page-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  margin-bottom: 36px; /* default: stock-form, control */
+}
+
+body.page-stock-list h1.page-title {
+  margin-bottom: 0; /* judul duduk di dalam .page-head, tidak butuh margin tambahan */
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* .layout dipakai di dashboard / stock-form / control, proporsi kolomnya beda-beda */
+.layout {
+  display: grid;
+  gap: 56px;
+}
+
+body.page-dashboard .layout {
+  grid-template-columns: 46% 1fr;
+}
+
+body.page-stock-form .layout {
+  grid-template-columns: 46% 1fr;
+  align-items: start;
+}
+
+body.page-control .layout {
+  grid-template-columns: 44% 1fr;
+  align-items: start;
+}
+
+/* .divider dipakai di dashboard & stock-form dengan margin berbeda */
+.divider {
+  height: 1px;
+  background: var(--line);
+}
+
+body.page-dashboard .divider {
+  margin: 24px 0;
+}
+
+body.page-stock-form .divider {
+  margin: 8px 0 28px;
+}
+
+/* .btn-primary dipakai di stock-list & stock-form dengan ukuran berbeda */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #17493d;
+}
+
+body.page-stock-list .btn-primary {
+  padding: 13px 22px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+body.page-stock-form .btn-primary {
+  padding: 14px 26px;
+  font-size: 15px;
+}
+
+/* Responsive topbar — nilainya sama di semua halaman yang memilikinya */
+@media (max-width: 860px) {
+  .topbar {
+    padding: 16px 20px;
+  }
+}
+
+
+/* =====================================================================
+   4. HALAMAN: LOGIN (login_tmpl.html)  — body.page-login
+   ===================================================================== */
+.login-box {
+  width: 100%;
+  max-width: 360px;
+}
+
+body.page-login .brand {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+body.page-login .field {
+  margin-bottom: 18px;
+}
+
+body.page-login .field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+body.page-login .field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--panel);
+}
+
+body.page-login .field input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+body.page-login .field input::placeholder {
+  color: #A3A8AD;
+}
+
+.btn-submit {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 13px;
+  font-size: 14.5px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-submit:hover {
+  background: #17493d;
+}
+
+.foot-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+.foot-note a {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.foot-note a:hover {
+  text-decoration: underline;
+}
+
+
+/* =====================================================================
+   5. HALAMAN: DASHBOARD (dashboard_tmpl.html) — body.page-dashboard
+   ===================================================================== */
+.topbar nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.topbar nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.topbar nav a.current {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.media-frame {
+  aspect-ratio: 4 / 3;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-frame .tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--ink);
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+}
+
+.detail-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-row {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+h1.item-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.condition {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.price-block {
+  margin-bottom: 4px;
+}
+
+.price-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.price-value {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.price-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.price-sub b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--urgent-soft);
+  color: var(--urgent);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 18px;
+}
+
+.countdown .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--urgent);
+}
+
+.top-bidder {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.top-bidder-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.top-bidder-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+.top-bidder-name {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+@media (max-width: 860px) {
+  body.page-dashboard .layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  body.page-dashboard main {
+    padding: 32px 20px 60px;
+  }
+
+  body.page-dashboard .topbar nav {
+    display: none;
+  }
+
+  body.page-dashboard .price-value {
+    font-size: 36px;
+  }
+}
+
+
+/* =====================================================================
+   6. HALAMAN: DAFTAR BARANG (stock-list_tmpl.html) — body.page-stock-list
+   ===================================================================== */
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  gap: 24px;
+}
+
+.count-row {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.count-row b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 220px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 0 14px;
+}
+
+.search-field svg {
+  width: 15px;
+  height: 15px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.search-field input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 11px 0;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+}
+
+.search-field input:focus {
+  outline: none;
+}
+
+.search-field:focus-within {
+  border-color: var(--accent);
+}
+
+.search-field input::placeholder {
+  color: #A3A8AD;
+}
+
+.status-tabs {
+  display: flex;
+  gap: 6px;
+  background: #F0EFEA;
+  padding: 4px;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.status-tab {
+  border: none;
+  background: transparent;
+  padding: 9px 16px;
+  font-size: 13.5px;
+  font-family: 'Inter', sans-serif;
+  color: var(--muted);
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.status-tab.active {
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(20, 24, 28, 0.08);
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.row[data-status="terjual"] .row-price-value {
+  color: var(--ink);
+}
+
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.empty-state.active {
+  display: block;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: background .12s ease;
+}
+
+.row:hover {
+  background: var(--panel);
+}
+
+.row-media {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #F4F3EF;
+  border: 1px solid var(--line);
+}
+
+.row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-lot {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.row-name {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row-category {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.row-price {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.row-price-label {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.row-price-value {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 640px) {
+  body.page-stock-list main {
+    padding: 32px 20px 80px;
+  }
+
+  .page-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row {
+    gap: 14px;
+  }
+
+  .row-media {
+    width: 56px;
+    height: 56px;
+  }
+
+  .row-name {
+    font-size: 15.5px;
+    white-space: normal;
+  }
+
+  .row-price-value {
+    font-size: 16px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status-tabs {
+    justify-content: space-between;
+  }
+
+  .status-tab {
+    flex: 1;
+    text-align: center;
+    padding: 9px 10px;
+  }
+}
+
+
+/* =====================================================================
+   7. HALAMAN: TAMBAH BARANG (stock-form_tmpl.html) — body.page-stock-form
+   ===================================================================== */
+.dropzone {
+  aspect-ratio: 4 / 3;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  text-align: center;
+  padding: 24px;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.dropzone:hover,
+.dropzone.drag-over {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.dropzone .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone .icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dropzone .title {
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.dropzone .hint {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+#file-input {
+  display: none;
+}
+
+/* -- crop stage -- */
+.crop-wrap {
+  display: none;
+}
+
+.crop-wrap.active {
+  display: block;
+}
+
+.crop-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: repeating-conic-gradient(#EFEDE7 0% 25%, #F7F6F2 0% 50%) 0 0 / 20px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  user-select: none;
+}
+
+.crop-stage img.source-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.crop-box {
+  position: absolute;
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 0 2000px rgba(20, 24, 28, 0.45);
+  cursor: move;
+}
+
+.crop-box .handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--panel);
+  border: 1.5px solid var(--accent);
+  border-radius: 2px;
+}
+
+.handle.nw {
+  top: -7px;
+  left: -7px;
+  cursor: nwse-resize;
+}
+
+.handle.ne {
+  top: -7px;
+  right: -7px;
+  cursor: nesw-resize;
+}
+
+.handle.sw {
+  bottom: -7px;
+  left: -7px;
+  cursor: nesw-resize;
+}
+
+.handle.se {
+  bottom: -7px;
+  right: -7px;
+  cursor: nwse-resize;
+}
+
+.dim-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.dim-field {
+  flex: 1;
+}
+
+.dim-field label {
+  display: block;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.dim-field .field-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.dim-field input {
+  width: 100%;
+  border: none;
+  padding: 11px 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: transparent;
+}
+
+.dim-field input:focus {
+  outline: none;
+}
+
+.dim-field .unit {
+  padding-right: 12px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.lock-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.lock-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+.lock-toggle.on {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.crop-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link-btn:hover {
+  color: var(--ink);
+}
+
+.btn-apply {
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 11px 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.btn-apply:hover {
+  background: #000;
+}
+
+.result-block {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: none;
+}
+
+.result-block.active {
+  display: block;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.result-row img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.result-info .title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.result-info .dims {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.result-info .dims b {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* -- form kanan -- */
+.form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+body.page-stock-form .field {
+  margin-bottom: 24px;
+}
+
+body.page-stock-form .field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.field .desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+body.page-stock-form .field input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 14px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--panel);
+}
+
+body.page-stock-form .price-input-wrap {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+body.page-stock-form .price-input-wrap .prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 15px;
+  color: var(--muted);
+  background: #F4F3EF;
+  border-right: 1px solid var(--line);
+}
+
+body.page-stock-form .price-input-wrap input {
+  flex: 1;
+  border: none;
+  padding: 13px 14px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: transparent;
+}
+
+body.page-stock-form .field input:focus,
+body.page-stock-form .price-input-wrap input:focus {
+  outline: none;
+}
+
+body.page-stock-form .field input:focus-visible,
+body.page-stock-form .price-input-wrap:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn-secondary {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 22px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  body.page-stock-form .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  body.page-stock-form main {
+    padding: 32px 20px 80px;
+  }
+}
+
+
+/* =====================================================================
+   8. HALAMAN: KONTROL TAMPILAN (control_tmpl.html) — body.page-control
+   ===================================================================== */
+.preview-col {
+  position: sticky;
+  top: 32px;
+}
+
+.preview-frame {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.preview-media {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  background: #F4F3EF;
+}
+
+.preview-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-media .live-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--live);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+}
+
+.preview-media .live-tag .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.preview-body {
+  padding: 20px 22px 24px;
+}
+
+.preview-name {
+  font-family: 'Fraunces', serif;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.preview-divider {
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 14px;
+}
+
+.preview-price-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.preview-price-value {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.visibility-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.visibility-toggle .label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.visibility-toggle .sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch .track {
+  position: absolute;
+  inset: 0;
+  background: #D8D5CC;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.switch .track::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform .15s ease;
+}
+
+.switch input:checked + .track {
+  background: var(--accent);
+}
+
+.switch input:checked + .track::before {
+  transform: translateX(18px);
+}
+
+/* -- kontrol kanan -- */
+.control-block {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 22px 24px;
+  margin-bottom: 20px;
+}
+
+.control-block-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.control-block-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.bidder-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.bidder-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.bidder-row:last-child {
+  border-bottom: none;
+}
+
+.bidder-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bidder-row.top .bidder-avatar {
+  background: var(--accent);
+  color: white;
+}
+
+.bidder-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bidder-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bidder-time {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+.bidder-amount {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.bidder-row.top .bidder-amount {
+  color: var(--accent);
+}
+
+.bidder-badge {
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--accent);
+  color: white;
+  margin-left: 8px;
+}
+
+body.page-control .field {
+  margin-bottom: 16px;
+}
+
+body.page-control .field:last-child {
+  margin-bottom: 0;
+}
+
+body.page-control .field label {
+  display: block;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+body.page-control .field input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--panel);
+}
+
+body.page-control .field input[type="text"]:focus {
+  outline: none;
+}
+
+body.page-control .field input[type="text"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.price-update-row {
+  display: flex;
+  gap: 10px;
+}
+
+body.page-control .price-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+body.page-control .price-input-wrap .prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 14px;
+  color: var(--muted);
+  background: #F4F3EF;
+  border-right: 1px solid var(--line);
+}
+
+body.page-control .price-input-wrap input {
+  flex: 1;
+  border: none;
+  padding: 12px 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: transparent;
+  min-width: 0;
+}
+
+body.page-control .price-input-wrap input:focus {
+  outline: none;
+}
+
+body.page-control .price-input-wrap:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.btn-update {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-update:hover {
+  background: #17493d;
+}
+
+.action-row {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-sold {
+  flex: 1;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.btn-sold:hover {
+  background: #000;
+}
+
+.btn-skip {
+  flex: 1;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.btn-skip:hover {
+  border-color: var(--ink);
+}
+
+/* -- antrean -- */
+.queue-section {
+  margin-top: 44px;
+}
+
+.queue-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.queue-head .section-label {
+  margin-bottom: 0;
+}
+
+.queue-count {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.queue-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.queue-row.is-active {
+  background: var(--accent-soft);
+}
+
+.queue-media {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #F4F3EF;
+  flex-shrink: 0;
+}
+
+.queue-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.queue-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.queue-lot {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.queue-name {
+  font-size: 14.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.queue-price {
+  font-size: 13px;
+  color: var(--muted);
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.btn-activate {
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 9px 14px;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.btn-activate:hover {
+  border-color: var(--ink);
+}
+
+.btn-activate.current {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  cursor: default;
+}
+
+@media (max-width: 860px) {
+  body.page-control .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .preview-col {
+    position: static;
+  }
+
+  body.page-control main {
+    padding: 32px 20px 80px;
+  }
+}

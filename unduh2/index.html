@@ -2,1003 +2,261 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unduh - Unduh GKI Sepanjang</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
-
-  <meta name="description" content="Daftar barang yang akan dilelang pada kegiata Unduh - Unduh Bulan keluarga">
-
-  
-  <meta property="og:url" content="https://galaparadi.github.io/unduh2">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Unduh - Unduh Bulan Keluarga GKI Sepanjang">
-  <meta property="og:description" content="Daftar barang yang akan dilelang pada kegiata Unduh - Unduh Bulan keluarga">
-  <meta property="og:image" content="https://galaparadi.github.io/unduh2/banner.jpeg">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="galaparadi.github.io">
-  <meta property="twitter:url" content="https://galaparadi.github.io/unduh2">
-  <meta name="twitter:title" content="Unduh - Unduh Bulan Keluarga GKI Sepanjang">
-  <meta name="twitter:description" content="Daftar barang yang akan dilelang pada kegiata Unduh - Unduh Bulan keluarga">
-  <meta name="twitter:image" content="https://galaparadi.github.io/unduh2/banner.jpeg">
-  <style>
-    :root {
-      --bg: #FAFAF8;
-      --panel: #FFFFFF;
-      --ink: #14181C;
-      --muted: #6B7280;
-      --line: #E4E1DA;
-      --accent: #1F5F4F;
-      --field-bg: #F4F3EF;
-      --radius: 4px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 48px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .topbar .brand {
-      font-family: 'Fraunces', serif;
-      font-size: 19px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-
-    .topbar-logo {
-      height: 52px;
-      width: 160px;
-      background-color: var(--accent);
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center;
-      -webkit-mask-size: contain;
-      mask-size: contain;
-    }
-
-    .topbar-logo.phbg {
-      -webkit-mask-image: url('img/phbg.png');
-      mask-image: url('img/phbg.png');
-    }
-
-    .topbar-logo.gki {
-      -webkit-mask-image: url('img/gki_sepanjang.png');
-      mask-image: url('img/gki_sepanjang.png');
-    }
-
-    main {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 40px 40px 100px;
-    }
-
-    .catalog-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .catalog-item {
-      display: flex;
-      flex-direction: column;
-      flex: 0 1 240px;
-      width: 240px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-      overflow: hidden;
-    }
-
-    .item-media {
-      aspect-ratio: 4 / 3;
-      background: var(--field-bg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .item-media .media-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(28px) brightness(0.85);
-      transform: scale(1.15);
-      display: block;
-    }
-
-    .item-media .media-fg {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .item-body {
-      padding: 14px 16px 16px;
-    }
-
-    .item-name {
-      font-family: 'Fraunces', serif;
-      color: var(--ink);
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      line-height: 1.35;
-    }
-
-    .item-price-label {
-      font-size: 11.5px;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-
-    .item-price-value {
-      font-family: 'Fraunces', serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--accent);
-    }
-
-    h1.page-title {
-      font-family: 'Fraunces', serif;
-      font-size: 30px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      margin-bottom: 36px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih — Unduh-Unduh Bulan Keluarga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <meta name="description" content="Unduh - Unduh Bulan Keluarga 4 Oktober 2026 GKI Sepanjang">
 
 
-    @media (max-width: 640px) {
-      .topbar {
-        padding: 16px 20px;
-      }
+    <meta property="og:url" content="https://galaparadi.github.io/unduh2">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Unduh - Unduh Bulan Keluarga 4 Oktober 2026 GKI Sepanjang">
+    <meta property="og:description"
+        content="Terima kasih telah berpartisipasi dalam kegiatan Unduh - Unduh Bulan Keluarga 4 Oktober 2026 di GKI Sepanjang">
+    <meta property="og:image" content="https://galaparadi.github.io/unduh2/banner.jpeg">
 
-      .topbar-logo {
-        height: 36px;
-        width: 110px;
-      }
 
-      main {
-        padding: 28px 20px 80px;
-      }
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="galaparadi.github.io">
+    <meta property="twitter:url" content="https://galaparadi.github.io/unduh2">
+    <meta name="twitter:title" content="Unduh - Unduh Bulan Keluarga 4 Oktober 2026 GKI Sepanjang">
+    <meta name="twitter:description"
+        content="Terima kasih telah berpartisipasi dalam kegiatan Unduh - Unduh Bulan Keluarga 4 Oktober 2026 di GKI Sepanjang">
+    <meta name="twitter:image" content="https://galaparadi.github.io/unduh2/banner.jpeg">
+    <style>
+        :root {
+            --bg: #FAFAF8;
+            --panel: #FFFFFF;
+            --ink: #14181C;
+            --muted: #6B7280;
+            --line: #E4E1DA;
+            --accent: #1F5F4F;
+            --accent-soft: #E8F0EE;
+            --radius: 4px;
+        }
 
-      .catalog-list {
-        flex-direction: column;
-        gap: 0;
-      }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-      .catalog-item {
-        flex-direction: row;
-        align-items: center;
-        gap: 14px;
-        border: none;
-        border-bottom: 1px solid var(--line);
-        border-radius: 0;
-        padding: 14px 4px;
-        width: 100%;
-        flex: 1 1 100%;
-      }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-      .item-media {
-        width: 64px;
-        height: 64px;
-        aspect-ratio: unset;
-        flex-shrink: 0;
-        border-radius: var(--radius);
-        overflow: hidden;
-        border: 1px solid var(--line);
-      }
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 48px;
+            border-bottom: 1px solid var(--line);
+        }
 
-      .item-body {
-        padding: 0;
-        flex: 1;
-        min-width: 0;
-      }
+        .topbar-logo {
+            height: 52px;
+            width: 160px;
+            background-color: var(--accent);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+        }
 
-      .item-name {
-        margin-bottom: 5px;
-      }
-    }
-  </style>
+        .topbar-logo.phbg {
+            -webkit-mask-image: url('/img/phbg.png');
+            mask-image: url('/img/phbg.png');
+        }
 
+        .topbar-logo.gki {
+            -webkit-mask-image: url('/img/gki-sepanjang.png');
+            mask-image: url('/img/gki-sepanjang.png');
+        }
+
+        main {
+            max-width: 1520px;
+            width: 100%;
+            margin: auto;
+            padding: 48px 64px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thanks-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 560px;
+            padding: 40px 24px;
+        }
+
+        .thanks-card .icon {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .thanks-card .icon svg {
+            width: 38px;
+            height: 38px;
+        }
+
+        .thanks-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 56px;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .thanks-desc {
+            font-size: 18px;
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .thanks-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--muted);
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .thanks-meta b {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+         
+        .thanks-total {
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+            width: 100%;
+        }
+
+        .thanks-total-label {
+            font-size: 15px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .thanks-total-value {
+            font-family: 'Fraunces', serif;
+            font-size: 40px;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 860px) {
+            main {
+                padding: 32px 20px 60px;
+            }
+
+            .topbar {
+                padding: 16px 20px;
+            }
+
+            .topbar-logo {
+                height: 36px;
+                width: 110px;
+            }
+
+            .thanks-card .icon {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 24px;
+            }
+
+            .thanks-card .icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .thanks-title {
+                font-size: 34px;
+            }
+
+            .thanks-desc {
+                font-size: 16px;
+            }
+
+            .thanks-total-value {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="topbar">
-    <div class="topbar-logo phbg" role="img" aria-label="PHBG - Panitia Hari Besar Gerejawi"></div>
-    <div class="topbar-logo gki" role="img" aria-label="GKI Sepanjang"></div>
-  </div>
-
-  <main>
-    <h1 class="page-title">List barang yang akan di lelang</h1>
-    <div class="catalog-list">
-
-      
-
-      <a class="catalog-item" href="stock/01M4111Y5D0DKNC449P787DY5D.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4111Y4ZF6FVRCRG24KNEKZ0.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4111Y4ZF6FVRCRG24KNEKZ0.jpg" alt="Wajan Sembako">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Wajan Sembako</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4114TC4KZ1Y17D7979603SK.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4114TBQHRPPCCWCKF6WX4DK.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4114TBQHRPPCCWCKF6WX4DK.jpg" alt="Beras 10 Kg">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Beras 10 Kg</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4117FWF8SCR3TZWNBGQF740.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4117FW3YW3D3ZJY4CG5NWN6.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4117FW3YW3D3ZJY4CG5NWN6.jpg" alt="Paket Kebutuhan Rumah">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Kebutuhan Rumah</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411J7H4WWSWR9TEX0JP5G76.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411J7GQ21JNXA7EFGS45XZJ.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411J7GQ21JNXA7EFGS45XZJ.jpg" alt="Beras pinpin 5 KG">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Beras pinpin 5 KG</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411K8R98TGN558PKEXHJVST.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411K8QRTV0AKXJA62ZAZYVA.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411K8QRTV0AKXJA62ZAZYVA.jpg" alt="Beras Yuu Rice">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Beras Yuu Rice</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411S2J6CDG2YZSBBPYFVJ2C.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411S2HTZ9Y5ACNZQRJVAY6G.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411S2HTZ9Y5ACNZQRJVAY6G.jpg" alt="Minyak Bimoli 5L">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Minyak Bimoli 5L</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411TCQJHDPF4M2EPQEWTQQK.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411TCQ45J7JE60437VTDTS9.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411TCQ45J7JE60437VTDTS9.jpg" alt="Mangga Masak Pohon">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Mangga Masak Pohon</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411VMRN23DH1719EJTHSVEQ.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411VMR4018JTQ2J42W3HT09.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411VMR4018JTQ2J42W3HT09.jpg" alt="Bingkisan Buah">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bingkisan Buah</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411XBYVKB0KJD46FR2DMTRY.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411XBYCSZBST24ZYVFH0B75.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411XBYCSZBST24ZYVFH0B75.jpg" alt="Bawang Merah Mangkok">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bawang Merah Mangkok</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411Y73EWZTKTV5TWX2MQMBT.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411Y72YNA1BAJ8ZB7K1VJTT.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411Y72YNA1BAJ8ZB7K1VJTT.jpg" alt="Bawang Merah Rotan">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bawang Merah Rotan</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M411ZB9PV6F7E44JCJVV8K0E.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M411ZB9DW0W7Q5JA43RVCN1X.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M411ZB9DW0W7Q5JA43RVCN1X.jpg" alt="Bucket Boneka">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bucket Boneka</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4120CSXAYYMDNG667A00Q7J.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4120CSB8BSGS4PW2D9E9DGQ.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4120CSB8BSGS4PW2D9E9DGQ.jpg" alt="Paket Sembako">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Sembako</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4121XQ2RZ9AVEKZ9F88080F.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4121XPMM9CMBA9BA53FCWRE.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4121XPMM9CMBA9BA53FCWRE.jpg" alt="Sembako Wafer">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Sembako Wafer</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412763B5E59TG9859EYZM34.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4127632ATJR1Y309GPASBP9.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4127632ATJR1Y309GPASBP9.jpg" alt="Air Frier 1000 Watt">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Air Frier 1000 Watt</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412820CTZ8BKSN2W9DG3K6D.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41281ZYAFT7WTP359FR5FYC.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41281ZYAFT7WTP359FR5FYC.jpg" alt="Paket Detergen">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Detergen</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412987NT1W9WKHXXH1KFM13.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4129875PQXGK8S6QH5M2MV3.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4129875PQXGK8S6QH5M2MV3.jpg" alt="Paket detergen">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket detergen</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412AKZN4SQPMTR22J1TCVYM.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412AKZ9M7MPRZW2KP484VBK.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412AKZ9M7MPRZW2KP484VBK.jpg" alt="Paket Kopi Indomie">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Kopi Indomie</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412C7BYEMBHK8G0ARPJVJ8H.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412C7BP0S8DB9RR376Y6RN7.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412C7BP0S8DB9RR376Y6RN7.jpg" alt="Paket Indomie">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Indomie</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412D0Y8ENGDQXAENGD5C24N.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412D0XSE7H3AK7RWR2JDCJV.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412D0XSE7H3AK7RWR2JDCJV.jpg" alt="Beras pinpin 5 KG">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Beras pinpin 5 KG</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412DYK7RE1QS20SBKBAXNVB.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412DYJRCT6FDDYM2GV7RYCR.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412DYJRCT6FDDYM2GV7RYCR.jpg" alt="Paket mi sembako">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket mi sembako</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412J7NXFM43844SKM5RYCG3.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412J7NA2MDVZVQRDXNHDAZV.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412J7NA2MDVZVQRDXNHDAZV.jpg" alt="Parcel Telur Asin">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Parcel Telur Asin</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412K40DRJZMCA0SSRNSA2F8.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412K3ZWNH7DV0BWN09TSDHC.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412K3ZWNH7DV0BWN09TSDHC.jpg" alt="Daster">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Daster</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412M069A1NXPZJRC27GSGMT.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412M05VWV4G0D234YXXJXCT.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412M05VWV4G0D234YXXJXCT.jpg" alt="Daster">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Daster</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412RXDQH5DMW1W77J1RNDD1.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412RXDNX23R5N3DF8DRN12R.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412RXDNX23R5N3DF8DRN12R.jpg" alt="Daster">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Daster</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412VH20M3G1RAMHHEH52RZ9.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412VH1NVT17KX6GC67WP6H2.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412VH1NVT17KX6GC67WP6H2.jpg" alt="Bumbu pecel">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bumbu pecel</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412W6J382RHPVPV60HCREFP.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412W6HPS7ME452ET02YH67W.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412W6HPS7ME452ET02YH67W.jpg" alt="Bumbu pecel">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bumbu pecel</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412WVH5DPZ4FHTHFFQ30VA3.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412WVGTF2G61DFJ6YYKT8G7.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412WVGTF2G61DFJ6YYKT8G7.jpg" alt="Kue Kering">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Kue Kering</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412XKY0VT9W8H46CMA1HH32.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412XKXMZX506ZV1PZYXQPY6.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412XKXMZX506ZV1PZYXQPY6.jpg" alt="Kue Kering">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Kue Kering</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412YNNBP769MH0MWQNBDK3J.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412YNMZ7QV5RQV4G1SA2WRN.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412YNMZ7QV5RQV4G1SA2WRN.jpg" alt="Paket Minyak Goreng">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Minyak Goreng</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M412ZEXKKDM59Y0EPNKAPSD3.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M412ZEX2YHX462Y8FJCDWYFJ.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M412ZEX2YHX462Y8FJCDWYFJ.jpg" alt="Paket Minyak Goreng">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Minyak Goreng</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41307VTYPFT8P749MCZERBC.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41307VDVVCGJJX9CK3Q0Y92.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41307VDVVCGJJX9CK3Q0Y92.jpg" alt="Paket Sunlight">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Sunlight</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M413135221NCNSWGZ3QG5XJ1.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M413134K2VF1V52SXD31SSM4.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M413134K2VF1V52SXD31SSM4.jpg" alt="Paket Sunlight">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Sunlight</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41342CKMD0VWHA2DNAQEYGJ.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41342C2MDW23KQ6F1E5DRSW.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41342C2MDW23KQ6F1E5DRSW.jpg" alt="Paket Snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4137NRYVEA3RGYH8EEWG90R.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4137NR6HBTJMFY5328YHSZS.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4137NR6HBTJMFY5328YHSZS.jpg" alt="Paket Snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41900EA14K8E0JHEN631T6Q.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41900DY5NG7XMRCSHCKGACE.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41900DY5NG7XMRCSHCKGACE.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41934545564NZ6QMJ6QPMWH.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419344HN6VJWY09QH01JR82.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419344HN6VJWY09QH01JR82.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419419JXGKT71GQE8J9986F.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4194192XBPWD8E8CPWPQVCQ.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4194192XBPWD8E8CPWPQVCQ.jpg" alt="Paket Snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4194JHH23X3228Q5HGQG5S7.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4194JGZDWXWCHPDFW82ARGK.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4194JGZDWXWCHPDFW82ARGK.jpg" alt="Paket Snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4195SJCZC5W75QJ2SVGZBFP.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4195SHXADRB1SGH7323TTK3.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4195SHXADRB1SGH7323TTK3.jpg" alt="Paket Snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4197SYT2BEC1TECDTJV6SHK.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4197SYBJ0DM66763K38KBRA.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4197SYBJ0DM66763K38KBRA.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4199WX3C666DX1783Q8ND1N.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4199WWX8H2AYK9TP65V68WN.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4199WWX8H2AYK9TP65V68WN.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419ATCJ2CEA4N3XWMF8BKQH.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419ATC2HB0ZEB0XJYBN84Y7.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419ATC2HB0ZEB0XJYBN84Y7.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419C7HAV4X4SCGSXNS6F1EA.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419C7GVKQSQH5YGR45C24YT.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419C7GVKQSQH5YGR45C24YT.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419E0GNEHZY1BBJ82XTZANY.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419E0GETYNGNRAMYNAK1ZBE.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419E0GETYNGNRAMYNAK1ZBE.jpg" alt="Paket snack">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket snack</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419GSQWCD2TSEQTR4570GKN.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419GSQNJGP2S8HTHVARGYGR.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419GSQNJGP2S8HTHVARGYGR.jpg" alt="Paket Snack Susu tumbler">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket Snack Susu tumbler</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419JFH9WFHMHPF038RSD070.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419JFGVNHHVRBPB8CAAP4TZ.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419JFGVNHHVRBPB8CAAP4TZ.jpg" alt="Paket ATK">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket ATK</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419M3GNRPJ97HQ51862HB3J.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419M3GAY01HS5CPJKHRVEVK.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419M3GAY01HS5CPJKHRVEVK.jpg" alt="Paket ATK dan card game">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket ATK dan card game</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M419QJX2ADM2X7VNRWXJT3PG.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M419QJWJDANPW8CTFQC4684G.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M419QJWJDANPW8CTFQC4684G.jpg" alt="Tas Noken">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Tas Noken</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A0APCWBQ0NB3PFBX9J62R.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A0AP1HQHA9XDYVWWXK4ME.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A0AP1HQHA9XDYVWWXK4ME.jpg" alt="Salib kayu">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Salib kayu</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A0QAH9XYTWDRXWS936BYS.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A0QA2NTAM6DCWSR1S4XG9.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A0QA2NTAM6DCWSR1S4XG9.jpg" alt="Salib kayu">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Salib kayu</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A11WF8NWX8EX740EG0HGD.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A11W5BP8SWTDTT876QZGF.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A11W5BP8SWTDTT876QZGF.jpg" alt="Salib kayu">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Salib kayu</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A1JWAQ9HMZNP2J3X0PZS7.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A1JVQPSEVQ8705XPQR7G3.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A1JVQPSEVQ8705XPQR7G3.jpg" alt="Salib kayu">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Salib kayu</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A2BM6GBDNHBWTR7DHX16F.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A2BM0F5BYEV8JFFCSWAJG.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A2BM0F5BYEV8JFFCSWAJG.jpg" alt="Salib kayu">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Salib kayu</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A5J51931VQNKWEFEVPYKS.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A5J4K3CWC5YWAV5T4N15E.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A5J4K3CWC5YWAV5T4N15E.jpg" alt="Sayur pikul">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Sayur pikul</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A697T8GJ0Z81MPFZ2J2KN.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A697DXQZH7RE0H8M4J076.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A697DXQZH7RE0H8M4J076.jpg" alt="Sayur pikul">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Sayur pikul</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M41A7SZ6Q3E2M8XFBNMFJPMB.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M41A7SYXG6QXBSBSEY8WAMD7.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M41A7SYXG6QXBSBSEY8WAMD7.jpg" alt="Paket buah">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Paket buah</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4252AFV6EEPDT2CYF69X650.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4252AFTCG1PYSK861RBKMJ0.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4252AFTCG1PYSK861RBKMJ0.jpg" alt="Bibit Terong">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bibit Terong</div>
-          
-        </div>
-      </a>
-
-      
-
-      <a class="catalog-item" href="stock/01M4252ZMHDSED95GAN35YJQJM.html" style="text-decoration: none;">
-        <div class="item-media">
-          <img class="media-bg" src="photos/stock-01M4252ZMHDSED95GAMZZ6EQDV.jpg" alt="" aria-hidden="true">
-          <img class="media-fg" src="photos/stock-01M4252ZMHDSED95GAMZZ6EQDV.jpg" alt="Bibit Pandan">
-        </div>
-        <div class="item-body">
-          <div class="item-name">Bibit Pandan</div>
-          
-        </div>
-      </a>
-
-      
+    <div class="topbar">
+        <div class="topbar-logo phbg" role="img" aria-label="PHBG - Panitia Hari Besar Gerejawi"></div>
+        <div class="topbar-logo gki" role="img" aria-label="GKI Sepanjang"></div>
     </div>
-  </main>
+
+    <main>
+        <div class="thanks-card">
+            <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
+                </svg>
+            </div>
+
+            <h1 class="thanks-title">Terima Kasih!</h1>
+
+            <p class="thanks-desc">
+                Terima kasih atas partisipasi dan dukungan Bapak/Ibu/Saudara/i dalam acara lelang Unduh-Unduh Bulan
+                Keluarga GKI Sepanjang. Setiap tawaran dan keikutsertaan menjadi berkat bagi pelayanan gereja.
+            </p>
+
+            <div class="thanks-meta">
+                <span>Unduh-Unduh Bulan Keluarga</span>
+                <span>·</span>
+                <span><b>4 Oktober 2026</b></span>
+            </div>
+
+            
+
+            <div class="thanks-total">
+                <div class="thanks-total-label">Total penghasilan lelang</div>
+                <div class="thanks-total-value">Rp. 20.335.000</div>
+                
+            </div>
+        </div>
+    </main>
 
 </body>
 

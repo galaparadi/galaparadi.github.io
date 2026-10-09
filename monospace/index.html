@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>uptime.sh — component system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-head">
+    <div>
+      <h1>uptime.sh<span class="cursor"></span></h1>
+      <div class="sub">/ component system — monospace design tokens</div>
+    </div>
+    <div class="meta">v1.4<br>build 2026.07.14</div>
+  </div>
+
+  <!-- ================= TOKENS ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">00</span><h2>tokens</h2><span class="path">$ cat tokens.css</span></div>
+    <div class="sec-desc">Basis warna dan tipografi yang dipakai semua komponen di bawah.</div>
+    <div class="demo">
+      <div class="tokens">
+        <div class="token"><span class="swatch" style="background:#12100d"></span>bg · #12100D</div>
+        <div class="token"><span class="swatch" style="background:#1c1914"></span>surface · #1C1914</div>
+        <div class="token"><span class="swatch" style="background:#ffb000"></span>amber · #FFB000</div>
+        <div class="token"><span class="swatch" style="background:#6b9a6b"></span>ok · #6B9A6B</div>
+        <div class="token"><span class="swatch" style="background:#d9a441"></span>warn · #D9A441</div>
+        <div class="token"><span class="swatch" style="background:#e2543b"></span>danger · #E2543B</div>
+        <div class="token" style="font-family:'JetBrains Mono',monospace; font-weight:700;">Aa — JetBrains Mono (display)</div>
+        <div class="token" style="font-family:'IBM Plex Mono',monospace;">Aa — IBM Plex Mono (body)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NAVIGATION ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>navigation</h2><span class="path">$ nav --variants</span></div>
+    <div class="sec-desc">Sidebar dengan prefix perintah (<code>$</code> aksi, <code>!</code> alert, <code>#</code> config), tabs, dan breadcrumb.</div>
+    <div class="demo">
+      <div class="nav-demo-shell">
+        <nav class="side-nav">
+          <div class="side-label">monitor</div>
+          <div class="side-item active"><span class="pfx">$</span> overview</div>
+          <div class="side-item"><span class="pfx">$</span> nodes</div>
+          <div class="side-item"><span class="pfx">$</span> deployments</div>
+          <div class="side-div"></div>
+          <div class="side-label">alerts</div>
+          <div class="side-item"><span class="pfx">!</span> incidents</div>
+        </nav>
+        <div>
+          <div class="tabs">
+            <div class="tab active">overview</div>
+            <div class="tab">metrics</div>
+            <div class="tab">history</div>
+            <div class="tab">settings</div>
+          </div>
+          <div class="breadcrumb">
+            <span>root</span><span class="sep">/</span><span>nodes</span><span class="sep">/</span><span class="current">node-api-01</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUTTONS ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>buttons</h2><span class="path">$ btn --variants</span></div>
+    <div class="sec-desc">Amber solid untuk aksi utama, outline untuk sekunder, danger untuk aksi destruktif. Border tegas, tanpa radius.</div>
+    <div class="demo">
+      <div class="swatch-label">primary / secondary / ghost</div>
+      <div class="row">
+        <button class="btn btn-primary">deploy <span class="k">⏎</span></button>
+        <button class="btn">view logs</button>
+        <button class="btn btn-ghost">cancel</button>
+        <button class="btn btn-danger">terminate node</button>
+        <button class="btn" disabled>syncing…</button>
+      </div>
+      <div class="swatch-label" style="margin-top:20px;">small size</div>
+      <div class="row">
+        <button class="btn btn-primary btn-sm">run</button>
+        <button class="btn btn-sm">restart</button>
+        <button class="btn btn-ghost btn-sm">···</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CARDS ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>cards</h2><span class="path">$ card --variants</span></div>
+    <div class="sec-desc">Metric card untuk angka, content card untuk deskripsi + tag.</div>
+    <div class="demo">
+      <div class="swatch-label">metric</div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-head"><span>cpu.load</span><span>avg</span></div>
+          <div class="card-num">62<span class="unit">%</span></div>
+          <div class="card-foot"><span class="delta pos">▲ 4.2%</span><span>24h</span></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span>mem.used</span><span>avg</span></div>
+          <div class="card-num">8.1<span class="unit">GB</span></div>
+          <div class="card-foot"><span class="delta neg">▼ 1.1%</span><span>24h</span></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span>err.rate</span><span>total</span></div>
+          <div class="card-num">0.03<span class="unit">%</span></div>
+          <div class="card-foot"><span class="delta pos">▼ 0.4%</span><span>24h</span></div>
+        </div>
+      </div>
+
+      <div class="swatch-label" style="margin-top:20px;">content / clickable</div>
+      <div class="card-grid">
+        <div class="card content clickable">
+          <h3>node-worker-01</h3>
+          <p>Autoscaling worker group, ap-southeast-3b. Handles background job queue.</p>
+          <div class="tag-row"><span class="tag">worker</span><span class="tag">autoscale</span></div>
+        </div>
+        <div class="card content clickable">
+          <h3>api-gateway v2.14.1</h3>
+          <p>Deployed 14:01:40, rolling update finished across 3 replicas.</p>
+          <div class="tag-row"><span class="tag">deploy</span><span class="tag">stable</span></div>
+        </div>
+        <div class="card content clickable">
+          <h3>db-primary</h3>
+          <p>Postgres 15, primary node. Connection pool retries elevated.</p>
+          <div class="tag-row"><span class="tag">database</span><span class="tag" style="color:var(--warn); border-color:var(--warn);">watch</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LISTS ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>lists</h2><span class="path">$ list --variants</span></div>
+    <div class="sec-desc">Row list dengan status pill dan timestamp, plus checklist untuk task/runbook.</div>
+    <div class="demo">
+      <div class="swatch-label">status list</div>
+      <div class="list">
+        <div class="list-item">
+          <span class="list-idx">01</span>
+          <div class="list-main"><div class="list-title">node-api-01</div><div class="list-sub">ap-southeast-3a · 58% cpu</div></div>
+          <span class="list-status ok">ok</span>
+          <span class="list-time">2s ago</span>
+        </div>
+        <div class="list-item">
+          <span class="list-idx">02</span>
+          <div class="list-main"><div class="list-title">node-worker-01</div><div class="list-sub">ap-southeast-3b · 81% cpu</div></div>
+          <span class="list-status warn">degraded</span>
+          <span class="list-time">14s ago</span>
+        </div>
+        <div class="list-item">
+          <span class="list-idx">03</span>
+          <div class="list-main"><div class="list-title">node-db-primary</div><div class="list-sub">ap-southeast-3a · retry 3/5</div></div>
+          <span class="list-status err">error</span>
+          <span class="list-time">41s ago</span>
+        </div>
+      </div>
+
+      <div class="swatch-label" style="margin-top:20px;">checklist</div>
+      <div class="list checklist">
+        <div class="list-item">
+          <span class="chk done"></span>
+          <div class="list-main"><div class="list-title done">Rotate database credentials</div></div>
+        </div>
+        <div class="list-item">
+          <span class="chk done"></span>
+          <div class="list-main"><div class="list-title done">Confirm backup snapshot 03:00 UTC</div></div>
+        </div>
+        <div class="list-item">
+          <span class="chk"></span>
+          <div class="list-main"><div class="list-title">Scale worker pool for peak traffic</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FORM ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>form</h2><span class="path">$ form --new-alert-rule</span></div>
+    <div class="sec-desc">Input, select, textarea, toggle, radio — dengan state focus dan error.</div>
+    <div class="demo">
+      <form class="form-grid" onsubmit="return false;">
+        <div class="field">
+          <label>rule name <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. high-cpu-alert" value="worker-cpu-threshold">
+        </div>
+        <div class="field">
+          <label>severity</label>
+          <select>
+            <option>info</option>
+            <option selected>warning</option>
+            <option>critical</option>
+          </select>
+        </div>
+
+        <div class="field error">
+          <label>threshold (%) <span class="req">*</span></label>
+          <input type="text" placeholder="0–100" value="105">
+          <span class="hint error">value must be between 0 and 100</span>
+        </div>
+        <div class="field">
+          <label>notify channel</label>
+          <input type="text" placeholder="#ops-alerts" value="#ops-alerts">
+        </div>
+
+        <div class="field full">
+          <label>description</label>
+          <textarea placeholder="Explain what this rule watches for…">Triggers when worker node cpu.load stays above threshold for more than 5 consecutive minutes.</textarea>
+          <span class="hint">markdown supported</span>
+        </div>
+
+        <div class="field">
+          <label>notify on resolve</label>
+          <div class="toggle-row">
+            <div class="toggle on"></div>
+            <span style="font-size:11.5px; color:var(--text-dim);">enabled</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>evaluation window</label>
+          <div class="radio-row">
+            <div class="radio-opt"><span class="radio-dot"></span>1m</div>
+            <div class="radio-opt"><span class="radio-dot sel"></span>5m</div>
+            <div class="radio-opt"><span class="radio-dot"></span>15m</div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">save rule</button>
+          <button class="btn btn-ghost" type="button">discard</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= TABLE ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>table</h2><span class="path">$ table --nodes --sort=cpu</span></div>
+    <div class="sec-desc">Header sortable, kolom numerik rata kanan dengan tabular figures, baris selectable, dan pagination di footer.</div>
+    <div class="demo">
+      <div class="table-wrap">
+        <table class="dtable">
+          <thead>
+            <tr>
+              <th class="chk-col"><span class="row-chk"></span></th>
+              <th class="sortable">node</th>
+              <th class="sortable">region</th>
+              <th class="sortable sorted num">cpu <span class="arrow">▼</span></th>
+              <th class="sortable num">mem <span class="arrow">▲▼</span></th>
+              <th>status</th>
+              <th class="num">updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="selected">
+              <td class="chk-col"><span class="row-chk on"></span></td>
+              <td class="mono">node-worker-01</td>
+              <td>ap-se-3b</td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill warn" style="width:81%"></span></span>
+                  <span class="mono num">81%</span>
+                </div>
+              </td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:47%"></span></span>
+                  <span class="mono num">47%</span>
+                </div>
+              </td>
+              <td><div class="cell-status"><span class="status-dot warn"></span>degraded</div></td>
+              <td class="mono num">14s ago</td>
+            </tr>
+            <tr>
+              <td class="chk-col"><span class="row-chk"></span></td>
+              <td class="mono">node-api-02</td>
+              <td>ap-se-3a</td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:63%"></span></span>
+                  <span class="mono num">63%</span>
+                </div>
+              </td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:55%"></span></span>
+                  <span class="mono num">55%</span>
+                </div>
+              </td>
+              <td><div class="cell-status"><span class="status-dot ok"></span>ok</div></td>
+              <td class="mono num">2s ago</td>
+            </tr>
+            <tr>
+              <td class="chk-col"><span class="row-chk"></span></td>
+              <td class="mono">node-api-01</td>
+              <td>ap-se-3a</td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:58%"></span></span>
+                  <span class="mono num">58%</span>
+                </div>
+              </td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:41%"></span></span>
+                  <span class="mono num">41%</span>
+                </div>
+              </td>
+              <td><div class="cell-status"><span class="status-dot ok"></span>ok</div></td>
+              <td class="mono num">2s ago</td>
+            </tr>
+            <tr>
+              <td class="chk-col"><span class="row-chk"></span></td>
+              <td class="mono">node-db-primary</td>
+              <td>ap-se-3a</td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:34%"></span></span>
+                  <span class="mono num">34%</span>
+                </div>
+              </td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:72%"></span></span>
+                  <span class="mono num">72%</span>
+                </div>
+              </td>
+              <td><div class="cell-status"><span class="status-dot err"></span>error</div></td>
+              <td class="mono num">41s ago</td>
+            </tr>
+            <tr>
+              <td class="chk-col"><span class="row-chk"></span></td>
+              <td class="mono">node-cache-01</td>
+              <td>ap-se-3c</td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:19%"></span></span>
+                  <span class="mono num">19%</span>
+                </div>
+              </td>
+              <td class="num">
+                <div class="cell-bar" style="justify-content:flex-end;">
+                  <span class="bar-track"><span class="bar-fill" style="width:38%"></span></span>
+                  <span class="mono num">38%</span>
+                </div>
+              </td>
+              <td><div class="cell-status"><span class="status-dot ok"></span>ok</div></td>
+              <td class="mono num">6s ago</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-foot">
+          <span>showing 1–5 of 12 nodes · 1 selected</span>
+          <div class="pager">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>uptime.sh component system</span>
+    <span>monospace / dark / amber</span>
+  </footer>
+
+</div>
+</body>
+</html>

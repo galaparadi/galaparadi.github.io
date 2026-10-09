@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Neo-Brutalism UI Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="neo-brutalism.css">
+</head>
+<body>
+<button class="mode-toggle" id="modeToggle" type="button">
+  <span class="dot"></span>
+  <span id="modeLabel">Dark Mode</span>
+</button>
+<div class="wrap">
+
+  <nav class="navbar" id="mainNavbar">
+    <a href="#" class="navbar-brand">
+      <span class="logo-box">N</span>
+      Neobrutal
+    </a>
+
+    <ul class="navbar-links">
+      <li><a href="#">Beranda</a></li>
+
+      <li class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle">
+          Produk <span class="caret"></span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="#">
+            Dashboard
+            <span class="menu-desc">Monitoring server real-time</span>
+          </a>
+          <a href="#">
+            Component Kit
+            <span class="menu-desc">Library UI neo-brutalism</span>
+          </a>
+          <a href="#">
+            Pricing
+            <span class="menu-desc">Paket &amp; harga berlangganan</span>
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle">
+          Resources <span class="caret"></span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="#">Dokumentasi</a>
+          <a href="#">Changelog</a>
+          <a href="#">Blog</a>
+        </div>
+      </li>
+
+      <li><a href="#">Kontak</a></li>
+    </ul>
+
+    <button type="button" class="navbar-toggle" id="navbarToggle" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+
+  <div class="page-header">
+    <h1 style="font-size:34px;margin:0 0 6px;">Neo‑Brutalism UI Kit</h1>
+    <p style="margin:0;font-size:14px;">Border tebal &middot; hard shadow &middot; warna kontras &middot; tanpa border-radius</p>
+  </div>
+
+  <div>
+    <p style="font-size:12px;text-transform:uppercase;letter-spacing:.5px;opacity:.6;margin:0 0 8px;">Contoh Opsi 3 — grid dikosongkan di belakang teks</p>
+    <h1 class="title-clear" style="font-size:34px;margin:0;">Judul Tanpa Kotak</h1>
+  </div>
+
+  <section>
+    <h2>Content Section</h2>
+
+    <div class="content-section">
+      <div class="content-body">
+        <span class="content-eyebrow">Fitur Baru</span>
+        <h2>Bangun UI yang <mark>berani</mark> dan mudah diingat</h2>
+        <p>Kit desain neo-brutalism ini membantu kamu membuat antarmuka yang tegas, jujur, dan tidak mudah dilupakan pengguna — tanpa perlu mendesain dari nol.</p>
+        <div class="content-actions">
+          <button class="btn btn-primary">Mulai Sekarang</button>
+          <button class="btn btn-ghost">Pelajari Lebih Lanjut</button>
+        </div>
+        <div class="content-stats">
+          <div class="stat"><strong>40+</strong><span>Komponen</span></div>
+          <div class="stat"><strong>12kb</strong><span>Ukuran CSS</span></div>
+          <div class="stat"><strong>100%</strong><span>Responsive</span></div>
+        </div>
+      </div>
+      <div class="content-visual">
+        <span class="badge">100% Open Source</span>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="200" fill="#4D7FFF"/>
+          <circle cx="60" cy="70" r="34" fill="#FFDE59" stroke="#111111" stroke-width="4"/>
+          <rect x="105" y="95" width="70" height="70" fill="#FF6FA5" stroke="#111111" stroke-width="4"/>
+          <path d="M20 170 L80 130 L140 175 L190 120" stroke="#111111" stroke-width="4" fill="none"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="feature-grid" style="margin-top:20px;">
+      <div class="feature-item">
+        <div class="icon">A</div>
+        <h4>Aksesibel</h4>
+        <p>Fokus terlihat jelas dan kontras warna tinggi di setiap komponen.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">B</div>
+        <h4>Ringan</h4>
+        <p>Murni CSS tanpa dependensi framework, mudah diintegrasikan.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">C</div>
+        <h4>Konsisten</h4>
+        <p>Token warna &amp; border terpusat lewat CSS custom properties.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Table</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Proyek</th>
+            <th>Status</th>
+            <th>Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Nama"><span class="table-user"><span class="table-avatar">RA</span>Rani A.</span></td>
+            <td data-label="Proyek">Landing Page Kit</td>
+            <td data-label="Status"><span class="table-pill is-success">Selesai</span></td>
+            <td data-label="Deadline">12 Jul 2026</td>
+          </tr>
+          <tr>
+            <td data-label="Nama"><span class="table-user"><span class="table-avatar">DP</span>Dimas P.</span></td>
+            <td data-label="Proyek">Dashboard Admin</td>
+            <td data-label="Status"><span class="table-pill is-warning">Proses</span></td>
+            <td data-label="Deadline">20 Jul 2026</td>
+          </tr>
+          <tr>
+            <td data-label="Nama"><span class="table-user"><span class="table-avatar">SF</span>Sari F.</span></td>
+            <td data-label="Proyek">Mobile App</td>
+            <td data-label="Status"><span class="table-pill is-danger">Terlambat</span></td>
+            <td data-label="Deadline">05 Jul 2026</td>
+          </tr>
+          <tr>
+            <td data-label="Nama"><span class="table-user"><span class="table-avatar">BW</span>Budi W.</span></td>
+            <td data-label="Proyek">Style Guide</td>
+            <td data-label="Status"><span class="table-pill is-success">Selesai</span></td>
+            <td data-label="Deadline">01 Jul 2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Button</h2>
+    <div class="row">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-accent">Accent</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-primary" disabled>Disabled</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Card</h2>
+    <div class="row">
+      <div class="card">
+        <span class="card-tag">Baru</span>
+        <h3>Judul Kartu</h3>
+        <p>Deskripsi singkat konten kartu dengan gaya neo-brutalism, tegas dan mudah dibaca.</p>
+        <button class="btn btn-primary" style="padding:10px 18px;font-size:13px;">Lihat Detail</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>List</h2>
+    <ul class="list">
+      <li><span class="list-index">1</span> Item pertama daftar</li>
+      <li><span class="list-index">2</span> Item kedua daftar</li>
+      <li><span class="list-index">3</span> Item ketiga daftar</li>
+      <li><span class="list-index">4</span> Item keempat daftar</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Form</h2>
+    <form class="form" onsubmit="return false;">
+      <div class="field">
+        <label for="nama">Nama</label>
+        <input type="text" id="nama" placeholder="Tulis nama kamu">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="nama@email.com">
+      </div>
+      <div class="field">
+        <label for="topik">Topik</label>
+        <select id="topik">
+          <option>Pertanyaan Umum</option>
+          <option>Kerja Sama</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pesan">Pesan</label>
+        <textarea id="pesan" placeholder="Tulis pesan kamu di sini..."></textarea>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="setuju">
+        <label for="setuju">Saya setuju dengan syarat &amp; ketentuan</label>
+      </div>
+      <button class="btn btn-primary" type="submit">Kirim Pesan</button>
+    </form>
+  </section>
+
+</div>
+<script>
+  var toggle = document.getElementById('modeToggle');
+  var label = document.getElementById('modeLabel');
+  toggle.addEventListener('click', function(){
+    document.body.classList.toggle('dark');
+    var isDark = document.body.classList.contains('dark');
+    label.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+  });
+
+  // Navbar: hamburger mobile
+  var navbar = document.getElementById('mainNavbar');
+  var navbarToggle = document.getElementById('navbarToggle');
+  navbarToggle.addEventListener('click', function(){
+    navbar.classList.toggle('open');
+  });
+
+  // Navbar: dropdown
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  dropdowns.forEach(function(dd){
+    var btn = dd.querySelector('.nav-dropdown-toggle');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      dropdowns.forEach(function(other){ other.classList.remove('open'); });
+      if(!isOpen){ dd.classList.add('open'); }
+    });
+  });
+  document.addEventListener('click', function(){
+    dropdowns.forEach(function(dd){ dd.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
